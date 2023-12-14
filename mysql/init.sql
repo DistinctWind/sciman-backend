@@ -4,16 +4,15 @@ use sciman;
 
 # user table
 
-create table user(
-    id int unsigned auto_increment primary key comment '登录用户id',
-    username varchar(32) unique comment '唯一用户名',
-    password varchar(32) comment '用户密码',
-    classification int comment '用户分类：0=超级管理员'
+create table administrator(
+    id int unsigned auto_increment primary key comment '登录管理员id',
+    username varchar(32) unique comment '唯一管理员用户名',
+    password varchar(32) comment '管理员密码'
 );
 
-insert into user(username, password, classification) values
-('hack', 'hack', -1),
-('admin', 'admin@123', 0);
+insert into administrator(username, password) values
+('hack', 'hack'),
+('admin', 'admin@123');
 
 # information tables
 
