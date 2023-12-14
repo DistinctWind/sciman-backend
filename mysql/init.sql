@@ -2,6 +2,19 @@
 create database sciman;
 use sciman;
 
+# user table
+
+create table user(
+    id int unsigned auto_increment primary key comment '登录用户id',
+    username varchar(32) unique comment '唯一用户名',
+    password varchar(32) comment '用户密码',
+    classification int comment '用户分类：0=超级管理员'
+);
+
+insert into user(username, password, classification) values
+('hack', 'hack', -1),
+('admin', 'admin@123', 0);
+
 # information tables
 
 create table laboratory(
