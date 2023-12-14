@@ -1,0 +1,6 @@
+services:
+  mysql-sciman:
+    build:
+      ./mysql
+    ports:
+      - 3306:3306
