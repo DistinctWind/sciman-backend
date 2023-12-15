@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Laboratory {
+    private Integer id;
     private String name;
     private String orientation;
 }

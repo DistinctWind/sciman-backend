@@ -134,3 +134,11 @@ create table attend_project(
     work_time int unsigned comment '工时',
     work_amount double comment '工作量占项目总量的比值'
 ) comment '研究人员参与项目关系表';
+
+# sample data
+INSERT INTO laboratory (name, orientation) VALUES
+('翠峰', '人工智能研究'),
+('沧海', '生物技术研究'),
+('青云', '环境科学研究'),
+('紫翼', '材料科学研究'),
+('明月', '社会科学研究');
