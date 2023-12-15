@@ -1,6 +1,6 @@
 package com.sciman.controller;
 
-import com.sciman.vo.lab.Laboratory;
+import com.sciman.pojo.Laboratory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

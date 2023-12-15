@@ -1,4 +1,4 @@
-package com.sciman.vo.lab;
+package com.sciman.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
