@@ -6,7 +6,7 @@ import com.sciman.dto.login.ModifyPasswordParam;
 import com.sciman.service.LoginService;
 import com.sciman.vo.login.LoginData;
 import com.sciman.vo.login.LoginRole;
-import com.sciman.vo.member.User;
+import com.sciman.pojo.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

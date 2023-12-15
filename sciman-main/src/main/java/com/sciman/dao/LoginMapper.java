@@ -1,6 +1,6 @@
 package com.sciman.dao;
 
-import com.sciman.vo.member.User;
+import com.sciman.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
