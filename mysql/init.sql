@@ -4,13 +4,14 @@ use sciman;
 
 # user table
 
-create table administrator(
-    id int unsigned auto_increment primary key comment '登录管理员id',
-    username varchar(32) unique comment '唯一管理员用户名',
-    password varchar(32) comment '管理员密码'
+create table user(
+    id int unsigned auto_increment primary key comment '登录凭证id',
+    username varchar(32) unique comment '用户名',
+    password varchar(32) comment '用户密码',
+    associated_employee_id int unsigned comment '关联的账号'
 );
 
-insert into administrator(username, password) values
+insert into user(username, password) values
 ('hack', 'hack'),
 ('admin', 'admin@123');
 
