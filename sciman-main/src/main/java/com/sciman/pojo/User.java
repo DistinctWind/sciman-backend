@@ -1,4 +1,4 @@
-package com.sciman.vo.member;
+package com.sciman.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
