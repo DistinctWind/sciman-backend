@@ -21,4 +21,9 @@ public class LabController {
     public Result listAll() {
         return Result.success(labService.listAllLaboratories());
     }
+
+    @GetMapping("/listIntro")
+    public Result listIntro() {
+        return Result.success(labService.listLaboratoryIntroductionFor(0, 0));
+    }
 }
