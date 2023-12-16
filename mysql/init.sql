@@ -30,7 +30,7 @@ create table venue(
 create table staff(
     id int unsigned auto_increment primary key comment '主任id',
     researcher_id int unsigned not null comment '科研人员id',
-    laboratory_id int unsigned not null comment '研究室id',
+    laboratory_id int unsigned not null unique comment '研究室id',
     due_date date not null comment '任期'
 ) comment '主任表';
 
