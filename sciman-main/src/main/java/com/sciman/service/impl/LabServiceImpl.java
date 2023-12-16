@@ -15,6 +15,11 @@ public class LabServiceImpl implements LabService {
     private final LabMapper labMapper;
 
     @Override
+    public Integer delete(Integer id) {
+        return labMapper.delete(id);
+    }
+
+    @Override
     public List<LaboratoryIntroduction> listLaboratoryIntroductionFor(Integer page, Integer count) {
         return labMapper.queryLabIntros();
     }

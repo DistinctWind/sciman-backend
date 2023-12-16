@@ -2,6 +2,7 @@ package com.sciman.dao;
 
 import com.sciman.pojo.Laboratory;
 import com.sciman.vo.lab.LaboratoryIntroduction;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -18,4 +19,7 @@ public interface LabMapper {
             "join serve on lab.id = serve.laboratory_id\n" +
             "join secretary on serve.secretary_id = secretary.employee_id")
     List<LaboratoryIntroduction> queryLabIntros();
+
+    @Delete("delete from laboratory where id = #{id}")
+    Integer delete(Integer id);
 }
