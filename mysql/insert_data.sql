@@ -98,7 +98,7 @@ INSERT INTO serve (secretary_id, laboratory_id) VALUES
 (20004, 10),  -- 李阳服务于秋水实验室
 (20005, 11),  -- 陈华服务于翎羽实验室
 (20006, 12),  -- 许明服务于朝霞实验室
-(20005, 13),  -- 陈华服务于翎羽实验室
+(20005, 13);  -- 陈华服务于翎羽实验室
 
 -- 插入办公场所表的SQL语句
 INSERT INTO venue (laboratory_id, area, address) VALUES
