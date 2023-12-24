@@ -18,7 +18,7 @@ public class ResearcherController {
         return Result.success(researcherService.listAllResearcherView());
     }
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     public Result list(@RequestBody QueryParam param) {
         return Result.success(researcherService.listResearcherViewFor(param));
     }
