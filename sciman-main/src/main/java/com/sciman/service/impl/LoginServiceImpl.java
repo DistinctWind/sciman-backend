@@ -27,14 +27,14 @@ public class LoginServiceImpl implements LoginService {
     public LoginData verify(LoginParam loginParam) {
         String username = loginParam.getUsername();
         String password = loginParam.getPassword();
-        LoginRole expectedRole = loginParam.getExpectedRole();
-        if (expectedRole.equals(LoginRole.ADMIN)) {
-            User user = loginMapper.loginAsAdministrator(username, password);
-            if (user == null) {
-                return null;
-            }
-            return new LoginData(user.getId());
+        User user = loginMapper.login(username, password);
+        if (user == null) {
+            return null;
         }
-        return null;
+        if (user.getAssociatedEmployeeId() == null) {
+            return new LoginData(user.getId(), LoginRole.ADMIN);
+        } else {
+            return new LoginData(user.getId(), LoginRole.USER);
+        }
     }
 }

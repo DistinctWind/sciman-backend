@@ -5,6 +5,9 @@ insert into user(username, password) values
 ('hack', 'hack'),
 ('admin', 'admin@123');
 
+insert into user(username, password, associated_employee_id) values
+('rankrev', 'rkkkrev', 10001);
+
 # sample data
 INSERT INTO laboratory (name, orientation) VALUES
 ('蔚蓝实验室', '在食品科学领域进行研究，关注食品安全和营养品质'),

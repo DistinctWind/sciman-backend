@@ -7,4 +7,5 @@ import lombok.Data;
 @Data
 public class LoginData {
     private Integer id;
+    private LoginRole role;
 }
