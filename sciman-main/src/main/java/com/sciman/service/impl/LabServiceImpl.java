@@ -21,7 +21,7 @@ public class LabServiceImpl implements LabService {
 
     @Override
     public List<LaboratoryIntroduction> listLaboratoryIntroductionFor(Integer page, Integer count) {
-        return labMapper.queryLabIntros();
+        return labMapper.queryLabIntros(null);
     }
 
     @Override
