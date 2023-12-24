@@ -9,4 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QueryParam {
     private String nameFilter;
+
+    public void normalize() {
+        if (nameFilter != null && nameFilter.isEmpty()) {
+            nameFilter = null;
+        }
+    }
 }

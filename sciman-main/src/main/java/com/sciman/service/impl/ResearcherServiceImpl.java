@@ -16,6 +16,7 @@ public class ResearcherServiceImpl implements ResearcherService {
 
     @Override
     public List<ResearcherView> listResearcherViewFor(QueryParam queryParam) {
+        queryParam.normalize();
         return researcherMapper.listResearcherView(queryParam.getNameFilter());
     }
 
