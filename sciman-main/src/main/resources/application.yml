@@ -8,5 +8,4 @@ spring:
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
+  config-location: classpath:mybatis-config.xml
