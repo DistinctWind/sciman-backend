@@ -8,4 +8,6 @@ import java.util.List;
 public interface LabService {
     List<Laboratory> listAllLaboratories();
     List<LaboratoryIntroduction> listLaboratoryIntroductionFor(Integer page, Integer count);
+
+    Integer delete(Integer id);
 }
