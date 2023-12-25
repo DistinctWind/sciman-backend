@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QueryParam {
     private String nameFilter;
-    private Integer limitStart;
-    private Integer limitSize;
+    private Integer page;
+    private Integer pageSize;
 
     public void normalize() {
         if (nameFilter != null && nameFilter.isEmpty()) {

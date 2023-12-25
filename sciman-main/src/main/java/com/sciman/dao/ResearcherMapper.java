@@ -1,5 +1,6 @@
 package com.sciman.dao;
 
+import com.github.pagehelper.Page;
 import com.sciman.vo.person.ResearcherView;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -12,9 +13,7 @@ public interface ResearcherMapper {
             "    from researcher r join laboratory l on r.laboratory_id = l.id ")
     List<ResearcherView> listAllResearcherView();
 
-    List<ResearcherView> listResearcherView(
-            String nameFilter,
-            Integer limitStart,
-            Integer limitSize
+    Page<ResearcherView> listResearcherView(
+            String nameFilter
     );
 }

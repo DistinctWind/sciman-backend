@@ -13,8 +13,5 @@
                 r.name like '%${nameFilter}%'
             </if>
         </where>
-        <if test="limitStart != null and limitSize != null">
-            limit ${limitStart}, ${limitSize}
-        </if>
     </select>
 </mapper>
