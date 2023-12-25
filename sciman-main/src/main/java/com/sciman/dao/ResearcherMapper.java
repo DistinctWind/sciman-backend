@@ -14,6 +14,7 @@ public interface ResearcherMapper {
     List<ResearcherView> listAllResearcherView();
 
     Page<ResearcherView> listResearcherView(
-            String nameFilter
+            String nameFilter,
+            String laboratoryNameFilter
     );
 }

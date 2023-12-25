@@ -12,6 +12,9 @@
             <if test="nameFilter != null">
                 r.name like '%${nameFilter}%'
             </if>
+            <if test="laboratoryNameFilter != null">
+                and l.name like '%${laboratoryNameFilter}%'
+            </if>
         </where>
     </select>
 </mapper>

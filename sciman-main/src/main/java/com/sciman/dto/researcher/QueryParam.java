@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QueryParam {
     private String nameFilter;
+    private String laboratoryNameFilter;
     private Integer page;
     private Integer pageSize;
 
