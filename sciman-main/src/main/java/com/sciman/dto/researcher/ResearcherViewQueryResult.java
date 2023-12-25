@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class QueryResult {
+public class ResearcherViewQueryResult {
     private List<ResearcherView> researchers;
     private Long total;
 }
