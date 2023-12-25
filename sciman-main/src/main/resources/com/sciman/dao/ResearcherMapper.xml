@@ -7,11 +7,14 @@
 
     <select id="listResearcherView" resultType="com.sciman.vo.person.ResearcherView">
         select employee_id, l.name laboratory_name, r.name as name, gender, age
-            from researcher r join laboratory l on r.laboratory_id = l.id
+        from researcher r join laboratory l on r.laboratory_id = l.id
         <where>
             <if test="nameFilter != null">
                 r.name like '%${nameFilter}%'
             </if>
         </where>
+        <if test="limitStart != null and limitSize != null">
+            limit ${limitStart}, ${limitSize}
+        </if>
     </select>
 </mapper>
