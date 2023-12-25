@@ -1,6 +1,7 @@
 package com.sciman.dao;
 
 import com.github.pagehelper.Page;
+import com.sciman.pojo.Researcher;
 import com.sciman.vo.person.ResearcherView;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -17,4 +18,7 @@ public interface ResearcherMapper {
             String nameFilter,
             String laboratoryNameFilter
     );
+
+    @Select("select * from researcher where employee_id = #{id}")
+    Researcher getResearcherId(Long id);
 }
