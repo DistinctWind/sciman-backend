@@ -12,5 +12,9 @@ public interface ResearcherMapper {
             "    from researcher r join laboratory l on r.laboratory_id = l.id ")
     List<ResearcherView> listAllResearcherView();
 
-    List<ResearcherView> listResearcherView(String nameFilter);
+    List<ResearcherView> listResearcherView(
+            String nameFilter,
+            Integer limitStart,
+            Integer limitSize
+    );
 }

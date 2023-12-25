@@ -20,7 +20,11 @@ public class ResearcherServiceImpl implements ResearcherService {
     public List<ResearcherView> listResearcherViewFor(QueryParam queryParam) {
         log.info(queryParam.toString());
         queryParam.normalize();
-        return researcherMapper.listResearcherView(queryParam.getNameFilter());
+        return researcherMapper.listResearcherView(
+                queryParam.getNameFilter(),
+                queryParam.getLimitStart(),
+                queryParam.getLimitSize()
+        );
     }
 
     @Override
