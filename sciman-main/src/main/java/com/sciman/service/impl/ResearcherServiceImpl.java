@@ -24,9 +24,10 @@ public class ResearcherServiceImpl implements ResearcherService {
     public QueryResult listResearcherViewFor(QueryParam queryParam) {
         log.info(queryParam.toString());
         queryParam.normalize();
-            PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
+        PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
         Page<ResearcherView> result = researcherMapper.listResearcherView(
-                queryParam.getNameFilter()
+                queryParam.getNameFilter(),
+                queryParam.getLaboratoryNameFilter()
         );
         return new QueryResult(result.getResult(), result.getTotal());
     }
