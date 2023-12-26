@@ -37,6 +37,12 @@ public class SecretaryServiceImpl implements SecretaryService {
     }
 
     @Override
+    public boolean modifySecretary(Secretary secretary) {
+        log.info("modify secretary: {}", secretary);
+        return secretaryMapper.updateSecretary(secretary) == 1;
+    }
+
+    @Override
     public SecretaryViewQueryResult getResearcherViewFor(QueryParam queryParam) {
         log.info(queryParam.toString());
         queryParam.normalize();
