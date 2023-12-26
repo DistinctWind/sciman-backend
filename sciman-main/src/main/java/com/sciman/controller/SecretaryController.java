@@ -17,7 +17,7 @@ public class SecretaryController {
         return Result.success(secretaryService.getAllResearcherView());
     }
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     public Result list(@RequestBody QueryParam param) {
         return Result.success(secretaryService.getResearcherViewFor(param));
     }
