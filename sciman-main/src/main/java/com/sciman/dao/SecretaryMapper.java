@@ -19,4 +19,6 @@ public interface SecretaryMapper {
     Page<SecretaryView> getSecretaryFor(
             String nameFilter
     );
+
+    Integer updateSecretary(Secretary secretary);
 }
