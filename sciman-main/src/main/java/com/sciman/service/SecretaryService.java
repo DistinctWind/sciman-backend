@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SecretaryService {
     List<SecretaryView> getAllResearcherView();
-    SecretaryView getResearcherViewById(Long id);
+    Secretary getSecretaryById(Long id);
     SecretaryViewQueryResult getResearcherViewFor(QueryParam queryParam);
     boolean modifySecretary(Secretary secretary);
 }

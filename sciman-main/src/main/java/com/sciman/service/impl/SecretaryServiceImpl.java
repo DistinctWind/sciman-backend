@@ -32,8 +32,8 @@ public class SecretaryServiceImpl implements SecretaryService {
     }
 
     @Override
-    public SecretaryView getResearcherViewById(Long id) {
-        return new SecretaryView(secretaryMapper.getSecretaryById(id));
+    public Secretary getSecretaryById(Long id) {
+        return secretaryMapper.getSecretaryById(id);
     }
 
     @Override
