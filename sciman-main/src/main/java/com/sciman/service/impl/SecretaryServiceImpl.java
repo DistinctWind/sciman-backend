@@ -22,7 +22,7 @@ public class SecretaryServiceImpl implements SecretaryService {
     private final SecretaryMapper secretaryMapper;
 
     @Override
-    public List<SecretaryView> getAllResearcherView() {
+    public List<SecretaryView> getAllSecretaryView() {
         List<Secretary> secretaries = secretaryMapper.getAllSecretary();
         List<SecretaryView> secretaryViews = new ArrayList<>(secretaries.size());
         for (Secretary secretary : secretaries) {
@@ -43,7 +43,7 @@ public class SecretaryServiceImpl implements SecretaryService {
     }
 
     @Override
-    public SecretaryViewQueryResult getResearcherViewFor(QueryParam queryParam) {
+    public SecretaryViewQueryResult getSecretaryViewFor(QueryParam queryParam) {
         log.info(queryParam.toString());
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());

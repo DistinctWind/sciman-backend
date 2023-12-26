@@ -15,12 +15,12 @@ public class SecretaryController {
     private final SecretaryService secretaryService;
     @GetMapping("/listAll")
     public Result listAll() {
-        return Result.success(secretaryService.getAllResearcherView());
+        return Result.success(secretaryService.getAllSecretaryView());
     }
 
     @PostMapping("/list")
     public Result list(@RequestBody QueryParam param) {
-        return Result.success(secretaryService.getResearcherViewFor(param));
+        return Result.success(secretaryService.getSecretaryViewFor(param));
     }
 
     @GetMapping("/detail/{id}")

@@ -8,8 +8,8 @@ import com.sciman.vo.person.SecretaryView;
 import java.util.List;
 
 public interface SecretaryService {
-    List<SecretaryView> getAllResearcherView();
+    List<SecretaryView> getAllSecretaryView();
     Secretary getSecretaryById(Long id);
-    SecretaryViewQueryResult getResearcherViewFor(QueryParam queryParam);
+    SecretaryViewQueryResult getSecretaryViewFor(QueryParam queryParam);
     boolean modifySecretary(Secretary secretary);
 }
