@@ -32,4 +32,12 @@ public class ResearcherController {
         }
         return Result.success(researcher);
     }
+
+    @PostMapping("/modify")
+    public Result modify(@RequestBody Researcher researcher) {
+        if (researcherService.modifyResearcher(researcher)) {
+            return Result.success();
+        }
+        return Result.fail("modify failed");
+    }
 }

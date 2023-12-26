@@ -39,6 +39,12 @@ public class ResearcherServiceImpl implements ResearcherService {
     }
 
     @Override
+    public boolean modifyResearcher(Researcher researcher) {
+        log.info("modifying researcher: {}", researcher);
+        return researcherMapper.updateResearcher(researcher) == 1;
+    }
+
+    @Override
     public List<ResearcherView> listAllResearcherView() {
         return researcherMapper.listAllResearcherView();
     }
