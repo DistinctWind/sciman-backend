@@ -1,12 +1,10 @@
 package com.sciman.controller;
 
+import com.sciman.dto.secretary.QueryParam;
 import com.sciman.service.SecretaryService;
 import com.sciman.utils.result.Result;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -19,5 +17,8 @@ public class SecretaryController {
         return Result.success(secretaryService.getAllResearcherView());
     }
 
-
+    @GetMapping("/list")
+    public Result list(@RequestBody QueryParam param) {
+        return Result.success(secretaryService.getResearcherViewFor(param));
+    }
 }
