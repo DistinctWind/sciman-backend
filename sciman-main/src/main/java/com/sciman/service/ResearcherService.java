@@ -13,4 +13,6 @@ public interface ResearcherService {
     ResearcherViewQueryResult listResearcherViewFor(QueryParam queryParam);
 
     Researcher getResearcherView(Long id);
+
+    boolean modifyResearcher(Researcher researcher);
 }

@@ -5,6 +5,7 @@ import com.sciman.pojo.Researcher;
 import com.sciman.vo.person.ResearcherView;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface ResearcherMapper {
 
     @Select("select * from researcher where employee_id = #{id}")
     Researcher getResearcherId(Long id);
+
+    int updateResearcher(Researcher researcher);
 }
