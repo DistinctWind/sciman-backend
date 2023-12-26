@@ -15,4 +15,6 @@ public interface ResearcherService {
     Researcher getResearcherView(Long id);
 
     boolean modifyResearcher(Researcher researcher);
+
+    boolean deleteResearcher(Long id);
 }

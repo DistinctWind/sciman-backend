@@ -39,6 +39,12 @@ public class ResearcherServiceImpl implements ResearcherService {
     }
 
     @Override
+    public boolean deleteResearcher(Long id) {
+        log.info("deleting researcher with id: {}", id);
+        return researcherMapper.deleteResearcher(id) == 1;
+    }
+
+    @Override
     public boolean modifyResearcher(Researcher researcher) {
         log.info("modifying researcher: {}", researcher);
         return researcherMapper.updateResearcher(researcher) == 1;

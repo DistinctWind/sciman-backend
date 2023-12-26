@@ -40,4 +40,12 @@ public class ResearcherController {
         }
         return Result.fail("modify failed");
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result delete(@PathVariable Long id) {
+        if (researcherService.deleteResearcher(id)) {
+            return Result.success();
+        }
+        return Result.fail("delete failed");
+    }
 }
