@@ -24,6 +24,7 @@ public class LabServiceImpl implements LabService {
     @Override
     public boolean insertLaboratory(Laboratory laboratory) {
         Integer result = labMapper.insert(laboratory);
+        serveMapper.insertServePlaceHolderFor(laboratory.getId());
         return result == 1;
     }
 

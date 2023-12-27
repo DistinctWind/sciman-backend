@@ -1,5 +1,6 @@
 package com.sciman.dao;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -10,6 +11,11 @@ public interface ServeMapper {
     Integer modifyLabSecretary(
             Integer laboratoryId,
             Integer secretaryId
+    );
+
+    @Insert("insert into serve(laboratory_id, secretary_id) values(#{laboratoryId}, null)")
+    Integer insertServePlaceHolderFor(
+            Integer laboratoryId
     );
 
     @Select("select secretary_id from serve where laboratory_id = #{laboratoryId}")
