@@ -31,11 +31,6 @@ public class LabController {
         return Result.success(labService.listLaboratoryViewFor(queryParam));
     }
 
-    @DeleteMapping("/delete")
-    public Result delete(@RequestParam Integer id) {
-        return Result.success(labService.delete(id));
-    }
-
     @PostMapping("/modifySecretary")
     public Result modifySecretary(@RequestBody LaboratorySecretaryModifyParam modifyParam) {
         boolean result = labService.modifyLabSecretary(modifyParam);
@@ -61,5 +56,14 @@ public class LabController {
             return Result.success();
         }
         return Result.fail("添加实验室失败");
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteById(@PathVariable Long id) {
+        boolean result = labService.delete(id);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("删除实验室失败");
     }
 }
