@@ -23,6 +23,15 @@ public class StaffController {
         return Result.success(stuffService.getStaffViewFor(param));
     }
 
+    @GetMapping("/detail/{id}")
+    public Result detail(@PathVariable Long id) {
+        Staff staff = stuffService.getById(id);
+        if (staff != null) {
+            return Result.success(staff);
+        }
+        return Result.fail("未找到该主任");
+    }
+
     @PostMapping("/modify")
     public Result modify(@RequestBody Staff staff) {
         boolean result = stuffService.modifyStaff(staff);
