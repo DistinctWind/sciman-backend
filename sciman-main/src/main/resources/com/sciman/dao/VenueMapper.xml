@@ -13,5 +13,10 @@
             address
         from venue v
         join laboratory l on v.laboratory_id = l.id
+        <where>
+            <if test="laboratoryNameFilter!=null">
+                l.name like '%${laboratorynameFilter}%'
+            </if>
+        </where>
     </select>
 </mapper>

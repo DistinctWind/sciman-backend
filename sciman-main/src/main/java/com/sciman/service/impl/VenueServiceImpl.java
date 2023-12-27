@@ -30,7 +30,9 @@ public class VenueServiceImpl implements VenueService {
         log.info("queryParam: {}", queryParam);
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
-        Page<VenueView> result = venueMapper.getVenueViewFor();
+        Page<VenueView> result = venueMapper.getVenueViewFor(
+                queryParam.getLaboratoryNameFilter()
+        );
         return new VenueQueryResult(result.getResult(), result.getTotal());
     }
 }

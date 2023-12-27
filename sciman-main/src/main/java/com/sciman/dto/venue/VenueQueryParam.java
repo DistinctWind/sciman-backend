@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 public class VenueQueryParam {
     private Integer page;
     private Integer pageSize;
-    private String laboratoryName;
+    private String laboratoryNameFilter;
 
     public void normalize() {
-        if (laboratoryName != null && laboratoryName.isEmpty()) {
-            laboratoryName = null;
+        if (laboratoryNameFilter != null && laboratoryNameFilter.isEmpty()) {
+            laboratoryNameFilter = null;
         }
     }
 }
