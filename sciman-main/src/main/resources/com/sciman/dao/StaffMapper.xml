@@ -4,6 +4,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sciman.dao.StaffMapper">
+    <update id="updateStaff">
+        update staff
+        set researcher_id = #{researcherId},
+            laboratory_id = #{laboratoryId},
+            due_date = #{dueDate}
+        where id = #{id}
+    </update>
 
     <select id="getStaffViewFor" resultType="com.sciman.vo.person.StaffView">
         select s.id as id,

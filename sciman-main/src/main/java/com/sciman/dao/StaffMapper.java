@@ -17,4 +17,6 @@ public interface StaffMapper {
             String nameFilter,
             String laboratoryFilter
     );
+
+    Integer updateStaff(Staff staff);
 }
