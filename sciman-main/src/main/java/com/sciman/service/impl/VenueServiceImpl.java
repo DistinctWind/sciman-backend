@@ -38,6 +38,11 @@ public class VenueServiceImpl implements VenueService {
     }
 
     @Override
+    public boolean modifyVenue(Venue venue) {
+        return venueMapper.updateVenue(venue) > 0;
+    }
+
+    @Override
     public Venue getVenueById(Long venueId) {
         return venueMapper.getVenueById(venueId);
     }
