@@ -30,7 +30,7 @@ public class StuffServiceImpl implements StuffService {
 
     @Override
     public Staff getById(Long id) {
-        return null;
+        return staffMapper.getStaffById(id);
     }
 
     @Override
