@@ -12,4 +12,6 @@ public interface VenueService {
     VenueQueryResult getVenueViewFor(VenueQueryParam queryParam);
 
     Venue getVenueById(Long venueId);
+
+    boolean modifyVenue(Venue venue);
 }

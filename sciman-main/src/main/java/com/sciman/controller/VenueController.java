@@ -32,4 +32,13 @@ public class VenueController {
         }
         return Result.fail("场所不存在");
     }
+
+    @PostMapping("/modify")
+    public Result modify(@RequestBody Venue venue) {
+        boolean result = venueService.modifyVenue(venue);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("修改失败");
+    }
 }

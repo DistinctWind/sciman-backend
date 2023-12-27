@@ -4,6 +4,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sciman.dao.VenueMapper">
+    <update id="updateVenue">
+        update venue
+        <set>
+            <if test="laboratoryId!=null">
+                laboratory_id = #{laboratoryId},
+            </if>
+            <if test="area!=null">
+                area = #{area},
+            </if>
+            <if test="address!=null">
+                address = #{address},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
     <select id="getVenueViewFor" resultType="com.sciman.vo.venue.VenueView">
         select
