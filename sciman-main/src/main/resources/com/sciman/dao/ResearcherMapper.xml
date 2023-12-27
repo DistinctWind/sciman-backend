@@ -10,12 +10,26 @@
     </insert>
     <update id="updateResearcher">
         update researcher
-        set laboratory_id = #{laboratoryId},
-            name = #{name},
-            gender = #{gender},
-            title = #{title},
-            age = #{age},
-            orientation = #{orientation}
+        <set>
+            <if test="laboratoryId != null">
+                laboratory_id = #{laboratoryId},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="orientation != null">
+                orientation = #{orientation},
+            </if>
+        </set>
         where employee_id = #{employeeId}
     </update>
 
