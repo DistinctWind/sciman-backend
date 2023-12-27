@@ -3,10 +3,7 @@ package com.sciman.dao;
 import com.github.pagehelper.Page;
 import com.sciman.pojo.Researcher;
 import com.sciman.vo.person.ResearcherView;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
@@ -29,4 +26,6 @@ public interface ResearcherMapper {
 
     @Delete("delete from researcher where employee_id = #{id}")
     int deleteResearcher(Long id);
+
+    int insertResearcher(Researcher researcher);
 }

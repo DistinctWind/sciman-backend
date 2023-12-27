@@ -48,4 +48,12 @@ public class ResearcherController {
         }
         return Result.fail("delete failed");
     }
+
+    @PostMapping("/insert")
+    public Result insert(@RequestBody Researcher researcher) {
+        if (researcherService.insertResearcher(researcher)) {
+            return Result.success();
+        }
+        return Result.fail("insert failed");
+    }
 }
