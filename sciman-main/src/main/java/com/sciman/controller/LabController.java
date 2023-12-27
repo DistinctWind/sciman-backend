@@ -1,5 +1,6 @@
 package com.sciman.controller;
 
+import com.sciman.dto.laboratory.LaboratoryQueryParam;
 import com.sciman.pojo.Laboratory;
 import com.sciman.service.LabService;
 import com.sciman.utils.result.Result;
@@ -22,6 +23,11 @@ public class LabController {
     @GetMapping("/listIntro")
     public Result listIntro() {
         return Result.success(labService.listLaboratoryIntroductionFor(0, 0));
+    }
+
+    @PostMapping("/list")
+    public Result list(@RequestBody LaboratoryQueryParam queryParam) {
+        return Result.success(labService.listLaboratoryViewFor(queryParam));
     }
 
     @DeleteMapping("/delete")
