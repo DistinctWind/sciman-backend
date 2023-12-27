@@ -41,4 +41,13 @@ public class VenueController {
         }
         return Result.fail("修改失败");
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result delete(@PathVariable Long id) {
+        boolean result = venueService.deleteVenue(id);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("删除失败");
+    }
 }

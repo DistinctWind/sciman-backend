@@ -26,6 +26,11 @@ public class VenueServiceImpl implements VenueService {
     }
 
     @Override
+    public boolean deleteVenue(Long venueId) {
+        return venueMapper.deleteVenueById(venueId) > 0;
+    }
+
+    @Override
     public VenueQueryResult getVenueViewFor(VenueQueryParam queryParam) {
         log.info("queryParam: {}", queryParam);
         queryParam.normalize();
