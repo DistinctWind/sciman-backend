@@ -1,6 +1,7 @@
 package com.sciman.service;
 
 import com.sciman.dto.laboratory.LaboratoryQueryParam;
+import com.sciman.dto.laboratory.LaboratorySecretaryModifyParam;
 import com.sciman.dto.laboratory.LaboratoryViewQueryResult;
 import com.sciman.pojo.Laboratory;
 import com.sciman.vo.lab.LaboratoryView;
@@ -12,4 +13,5 @@ public interface LabService {
     List<LaboratoryView> listLaboratoryIntroductionFor(Integer page, Integer count);
     Integer delete(Integer id);
     LaboratoryViewQueryResult listLaboratoryViewFor(LaboratoryQueryParam queryParam);
+    boolean modifyLabSecretary(LaboratorySecretaryModifyParam modifyParam);
 }
