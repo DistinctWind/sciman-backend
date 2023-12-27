@@ -37,6 +37,12 @@ public class SecretaryServiceImpl implements SecretaryService {
     }
 
     @Override
+    public boolean deleteSecretaryById(Long id) {
+        log.info("delete secretary by id: {}", id);
+        return secretaryMapper.deleteSecretaryById(id) == 1;
+    }
+
+    @Override
     public boolean modifySecretary(Secretary secretary) {
         log.info("modify secretary: {}", secretary);
         return secretaryMapper.updateSecretary(secretary) == 1;

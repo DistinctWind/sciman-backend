@@ -3,6 +3,7 @@ package com.sciman.dao;
 import com.github.pagehelper.Page;
 import com.sciman.pojo.Secretary;
 import com.sciman.vo.person.SecretaryView;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -21,4 +22,7 @@ public interface SecretaryMapper {
     );
 
     Integer updateSecretary(Secretary secretary);
+
+    @Delete("delete from secretary where employee_id = #{employeeId}")
+    Integer deleteSecretaryById(Long employeeId);
 }

@@ -12,4 +12,5 @@ public interface SecretaryService {
     Secretary getSecretaryById(Long id);
     SecretaryViewQueryResult getSecretaryViewFor(QueryParam queryParam);
     boolean modifySecretary(Secretary secretary);
+    boolean deleteSecretaryById(Long id);
 }
