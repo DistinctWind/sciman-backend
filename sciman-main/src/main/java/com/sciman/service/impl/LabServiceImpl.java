@@ -31,6 +31,11 @@ public class LabServiceImpl implements LabService {
     }
 
     @Override
+    public String queryOrientationOfLabId(Long id) {
+        return labMapper.queryOrientationOfLabId(id);
+    }
+
+    @Override
     public LaboratoryViewQueryResult listLaboratoryViewFor(LaboratoryQueryParam queryParam) {
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());

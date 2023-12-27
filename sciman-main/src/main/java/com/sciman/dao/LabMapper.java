@@ -25,4 +25,7 @@ public interface LabMapper {
     Page<LaboratoryView> listLaboratoryViewFor(
             String nameFilter
     );
+
+    @Select("select orientation from laboratory where id = #{id}")
+    String queryOrientationOfLabId(Long id);
 }
