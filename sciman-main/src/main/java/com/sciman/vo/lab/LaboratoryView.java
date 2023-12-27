@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LaboratoryIntroduction {
+public class LaboratoryView {
     private Integer id;
     private String laboratoryName;
     private String stuffName;
