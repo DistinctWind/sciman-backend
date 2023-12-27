@@ -4,8 +4,11 @@ import com.sciman.dto.researcher.ResearcherQueryParam;
 import com.sciman.pojo.Researcher;
 import com.sciman.service.ResearcherService;
 import com.sciman.utils.result.Result;
+import com.sciman.vo.person.ResearcherView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -15,8 +18,13 @@ public class ResearcherController {
     private final ResearcherService researcherService;
 
     @GetMapping("/listAll")
-    public Result listAll() {
-        return Result.success(researcherService.listAllResearcherView());
+    public Result listAll(@RequestParam(required = false) Long laboratoryId) {
+        List<ResearcherView> result = researcherService.listAllResearcherView(laboratoryId);
+        if (result != null && !result.isEmpty()) {
+            return Result.success(result);
+        } else {
+            return Result.fail("no researcher found");
+        }
     }
 
     @PostMapping("/list")
