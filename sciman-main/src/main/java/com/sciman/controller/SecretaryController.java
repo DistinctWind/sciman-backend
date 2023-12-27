@@ -49,4 +49,13 @@ public class SecretaryController {
         }
         return Result.fail("删除秘书信息失败");
     }
+
+    @PostMapping("/insert")
+    public Result insert(@RequestBody Secretary secretary) {
+        boolean result = secretaryService.insertSecretary(secretary);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("添加秘书失败");
+    }
 }

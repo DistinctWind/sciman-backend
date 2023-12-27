@@ -25,4 +25,6 @@ public interface SecretaryMapper {
 
     @Delete("delete from secretary where employee_id = #{employeeId}")
     Integer deleteSecretaryById(Long employeeId);
+
+    Integer insertSecretary(Secretary secretary);
 }

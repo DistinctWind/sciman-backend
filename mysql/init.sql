@@ -35,7 +35,7 @@ create table staff(
 ) comment '主任表';
 
 create table secretary(
-    employee_id int unsigned primary key comment '秘书工号',
+    employee_id int unsigned auto_increment primary key comment '秘书工号',
     name varchar(12) not null comment '姓名',
     gender tinyint unsigned not null comment '性别：1=男，2=女',
     age tinyint unsigned not null comment '年龄',
