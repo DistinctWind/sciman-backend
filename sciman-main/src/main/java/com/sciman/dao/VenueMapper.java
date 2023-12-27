@@ -13,5 +13,8 @@ public interface VenueMapper {
     @Select("select * from venue")
     List<Venue> getAllVenue();
 
-    Page<VenueView> getVenueViewFor(String laboratoryName);
+    Page<VenueView> getVenueViewFor(
+            String laboratoryNameFilter,
+            String addressFilter
+    );
 }

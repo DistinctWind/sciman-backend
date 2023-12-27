@@ -7,15 +7,18 @@
 
     <select id="getVenueViewFor" resultType="com.sciman.vo.venue.VenueView">
         select
-            v.id as id,
-            l.name as laboratoryName,
-            area,
-            address
+        v.id as id,
+        l.name as laboratoryName,
+        area,
+        address
         from venue v
         join laboratory l on v.laboratory_id = l.id
         <where>
             <if test="laboratoryNameFilter!=null">
                 l.name like '%${laboratorynameFilter}%'
+            </if>
+            <if test="addressFilter!=null">
+                and address like '%${addressFilter}%'
             </if>
         </where>
     </select>
