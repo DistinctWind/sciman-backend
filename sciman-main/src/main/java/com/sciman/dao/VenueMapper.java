@@ -17,4 +17,7 @@ public interface VenueMapper {
             String laboratoryNameFilter,
             String addressFilter
     );
+
+    @Select("select * from venue where id = #{venueId}")
+    Venue getVenueById(Long venueId);
 }
