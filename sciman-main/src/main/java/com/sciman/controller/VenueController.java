@@ -1,6 +1,7 @@
 package com.sciman.controller;
 
 import com.sciman.dto.venue.VenueQueryParam;
+import com.sciman.pojo.Venue;
 import com.sciman.service.VenueService;
 import com.sciman.utils.result.Result;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +22,14 @@ public class VenueController {
     @PostMapping("/list")
     public Result list(@RequestBody VenueQueryParam queryParam) {
         return Result.success(venueService.getVenueViewFor(queryParam));
+    }
+
+    @GetMapping("/detail/{id}")
+    public Result detail(@PathVariable Long id) {
+        Venue result = venueService.getVenueById(id);
+        if (result != null) {
+            return Result.success(result);
+        }
+        return Result.fail("场所不存在");
     }
 }

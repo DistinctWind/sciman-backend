@@ -36,4 +36,9 @@ public class VenueServiceImpl implements VenueService {
         );
         return new VenueQueryResult(result.getResult(), result.getTotal());
     }
+
+    @Override
+    public Venue getVenueById(Long venueId) {
+        return venueMapper.getVenueById(venueId);
+    }
 }

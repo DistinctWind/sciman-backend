@@ -10,4 +10,6 @@ public interface VenueService {
     List<Venue> getAllVenue();
 
     VenueQueryResult getVenueViewFor(VenueQueryParam queryParam);
+
+    Venue getVenueById(Long venueId);
 }
