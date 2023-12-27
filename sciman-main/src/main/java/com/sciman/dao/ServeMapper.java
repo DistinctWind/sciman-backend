@@ -1,6 +1,7 @@
 package com.sciman.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 @Mapper
@@ -9,5 +10,10 @@ public interface ServeMapper {
     Integer modifyLabSecretary(
             Integer laboratoryId,
             Integer secretaryId
+    );
+
+    @Select("select secretary_id from serve where laboratory_id = #{laboratoryId}")
+    Long getLabSecretaryId(
+            Long laboratoryId
     );
 }
