@@ -15,10 +15,10 @@
         join laboratory l on s.laboratory_id = l.id
         <where>
             <if test="nameFilter!=null">
-                name like '%${nameFilter}%',
+                r.name like '%${nameFilter}%'
             </if>
             <if test="laboratoryFilter!=null">
-                laboratory like '%${laboratoryFilter}%',
+                and l.name like '%${laboratoryFilter}%'
             </if>
         </where>
     </select>
