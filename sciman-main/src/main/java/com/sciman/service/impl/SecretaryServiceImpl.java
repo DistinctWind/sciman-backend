@@ -43,6 +43,12 @@ public class SecretaryServiceImpl implements SecretaryService {
     }
 
     @Override
+    public boolean insertSecretary(Secretary secretary) {
+        log.info("insert secretary: {}", secretary);
+        return secretaryMapper.insertSecretary(secretary) == 1;
+    }
+
+    @Override
     public boolean modifySecretary(Secretary secretary) {
         log.info("modify secretary: {}", secretary);
         return secretaryMapper.updateSecretary(secretary) == 1;
