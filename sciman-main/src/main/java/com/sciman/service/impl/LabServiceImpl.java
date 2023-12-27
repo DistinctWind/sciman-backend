@@ -22,6 +22,12 @@ public class LabServiceImpl implements LabService {
     private final ServeMapper serveMapper;
 
     @Override
+    public boolean insertLaboratory(Laboratory laboratory) {
+        Integer result = labMapper.insert(laboratory);
+        return result == 1;
+    }
+
+    @Override
     public boolean modifyLabSecretary(LaboratorySecretaryModifyParam modifyParam) {
         Integer result = serveMapper.modifyLabSecretary(
                 modifyParam.getLaboratoryId(),

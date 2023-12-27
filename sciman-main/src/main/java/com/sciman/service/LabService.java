@@ -15,4 +15,5 @@ public interface LabService {
     LaboratoryViewQueryResult listLaboratoryViewFor(LaboratoryQueryParam queryParam);
     boolean modifyLabSecretary(LaboratorySecretaryModifyParam modifyParam);
     String queryOrientationOfLabId(Long id);
+    boolean insertLaboratory(Laboratory laboratory);
 }

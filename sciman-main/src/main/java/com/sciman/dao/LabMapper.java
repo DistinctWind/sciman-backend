@@ -3,10 +3,7 @@ package com.sciman.dao;
 import com.github.pagehelper.Page;
 import com.sciman.pojo.Laboratory;
 import com.sciman.vo.lab.LaboratoryView;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -28,4 +25,6 @@ public interface LabMapper {
 
     @Select("select orientation from laboratory where id = #{id}")
     String queryOrientationOfLabId(Long id);
+
+    Integer insert(Laboratory laboratory);
 }
