@@ -16,4 +16,6 @@ public interface VenueService {
     boolean modifyVenue(Venue venue);
 
     boolean deleteVenue(Long venueId);
+
+    boolean insertVenue(Venue venue);
 }

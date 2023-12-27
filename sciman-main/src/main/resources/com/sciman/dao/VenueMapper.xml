@@ -4,6 +4,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sciman.dao.VenueMapper">
+    <insert id="insertVenue">
+        insert into venue (laboratory_id, area, address)
+        values (#{laboratoryId}, #{area}, #{address})
+    </insert>
     <update id="updateVenue">
         update venue
         <set>

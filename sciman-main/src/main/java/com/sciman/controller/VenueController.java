@@ -50,4 +50,14 @@ public class VenueController {
         }
         return Result.fail("删除失败");
     }
+
+    @PostMapping("/insert")
+    public Result insert(@RequestBody Venue venue) {
+        boolean result = venueService.insertVenue(venue);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("添加失败");
+    }
+
 }

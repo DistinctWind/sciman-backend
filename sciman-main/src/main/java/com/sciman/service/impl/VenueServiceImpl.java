@@ -26,6 +26,11 @@ public class VenueServiceImpl implements VenueService {
     }
 
     @Override
+    public boolean insertVenue(Venue venue) {
+        return venueMapper.insertVenue(venue) > 0;
+    }
+
+    @Override
     public boolean deleteVenue(Long venueId) {
         return venueMapper.deleteVenueById(venueId) > 0;
     }

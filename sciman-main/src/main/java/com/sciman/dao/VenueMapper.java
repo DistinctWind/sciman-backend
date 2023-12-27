@@ -26,4 +26,6 @@ public interface VenueMapper {
 
     @Delete("delete from venue where id = #{venueId}")
     Integer deleteVenueById(Long venueId);
+
+    Integer insertVenue(Venue venue);
 }
