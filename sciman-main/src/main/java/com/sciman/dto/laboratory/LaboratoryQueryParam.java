@@ -10,8 +10,11 @@ import lombok.NoArgsConstructor;
 public class LaboratoryQueryParam {
     private Integer page;
     private Integer pageSize;
+    private String laboratoryNameFilter;
 
     public void normalize() {
-
+        if (laboratoryNameFilter != null && laboratoryNameFilter.isEmpty()) {
+            laboratoryNameFilter = null;
+        }
     }
 }

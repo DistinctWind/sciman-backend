@@ -17,5 +17,10 @@
         join researcher r on stuff.researcher_id = r.employee_id
         join serve on lab.id = serve.laboratory_id
         join secretary on serve.secretary_id = secretary.employee_id
+        <where>
+            <if test="nameFilter != null">
+                lab.name like concat('%', #{nameFilter}, '%')
+            </if>
+        </where>
     </select>
 </mapper>

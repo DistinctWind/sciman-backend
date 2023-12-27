@@ -22,7 +22,9 @@ public class LabServiceImpl implements LabService {
     public LaboratoryViewQueryResult listLaboratoryViewFor(LaboratoryQueryParam queryParam) {
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
-        Page<LaboratoryView> laboratoryViews = labMapper.listLaboratoryViewFor(null);
+        Page<LaboratoryView> laboratoryViews = labMapper.listLaboratoryViewFor(
+                queryParam.getLaboratoryNameFilter()
+        );
         return new LaboratoryViewQueryResult(laboratoryViews.getResult(), laboratoryViews.getTotal());
     }
 
