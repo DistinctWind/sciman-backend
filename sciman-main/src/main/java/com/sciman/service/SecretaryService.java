@@ -14,4 +14,5 @@ public interface SecretaryService {
     boolean modifySecretary(Secretary secretary);
     boolean deleteSecretaryById(Long id);
     boolean insertSecretary(Secretary secretary);
+    Long getSecretaryIdByLabId(Long labId);
 }

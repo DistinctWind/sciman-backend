@@ -1,6 +1,7 @@
 package com.sciman.controller;
 
 import com.sciman.dto.laboratory.LaboratoryQueryParam;
+import com.sciman.dto.laboratory.LaboratorySecretaryModifyParam;
 import com.sciman.pojo.Laboratory;
 import com.sciman.service.LabService;
 import com.sciman.utils.result.Result;
@@ -33,5 +34,14 @@ public class LabController {
     @DeleteMapping("/delete")
     public Result delete(@RequestParam Integer id) {
         return Result.success(labService.delete(id));
+    }
+
+    @PostMapping("/modifySecretary")
+    public Result modifySecretary(@RequestBody LaboratorySecretaryModifyParam modifyParam) {
+        boolean result = labService.modifyLabSecretary(modifyParam);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("修改实验室秘书失败");
     }
 }

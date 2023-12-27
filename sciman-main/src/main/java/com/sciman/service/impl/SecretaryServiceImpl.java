@@ -3,6 +3,7 @@ package com.sciman.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sciman.dao.SecretaryMapper;
+import com.sciman.dao.ServeMapper;
 import com.sciman.dto.secretary.SecretaryQueryParam;
 import com.sciman.dto.secretary.SecretaryViewQueryResult;
 import com.sciman.pojo.Secretary;
@@ -20,6 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SecretaryServiceImpl implements SecretaryService {
     private final SecretaryMapper secretaryMapper;
+    private final ServeMapper serveMapper;
 
     @Override
     public List<SecretaryView> getAllSecretaryView() {
@@ -40,6 +42,11 @@ public class SecretaryServiceImpl implements SecretaryService {
     public boolean deleteSecretaryById(Long id) {
         log.info("delete secretary by id: {}", id);
         return secretaryMapper.deleteSecretaryById(id) == 1;
+    }
+
+    @Override
+    public Long getSecretaryIdByLabId(Long labId) {
+        return serveMapper.getLabSecretaryId(labId);
     }
 
     @Override

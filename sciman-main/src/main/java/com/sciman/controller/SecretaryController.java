@@ -58,4 +58,13 @@ public class SecretaryController {
         }
         return Result.fail("添加秘书失败");
     }
+
+    @GetMapping("/ofLab/{labId}")
+    public Result getSecretaryIdOfLabId(@PathVariable Long labId) {
+        Long secretaryId = secretaryService.getSecretaryIdByLabId(labId);
+        if (secretaryId != null) {
+            return Result.success(secretaryId);
+        }
+        return Result.fail("未找到该实验室的秘书");
+    }
 }
