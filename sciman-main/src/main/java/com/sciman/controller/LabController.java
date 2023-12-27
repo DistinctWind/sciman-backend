@@ -44,4 +44,13 @@ public class LabController {
         }
         return Result.fail("修改实验室秘书失败");
     }
+
+    @GetMapping("/queryOrientation/{id}")
+    public Result queryOrientation(@PathVariable Long id) {
+        String orientation = labService.queryOrientationOfLabId(id);
+        if (orientation != null) {
+            return Result.success(orientation);
+        }
+        return Result.fail("查询实验室方向失败");
+    }
 }

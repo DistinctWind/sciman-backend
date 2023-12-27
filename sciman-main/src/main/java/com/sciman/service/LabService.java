@@ -14,4 +14,5 @@ public interface LabService {
     Integer delete(Integer id);
     LaboratoryViewQueryResult listLaboratoryViewFor(LaboratoryQueryParam queryParam);
     boolean modifyLabSecretary(LaboratorySecretaryModifyParam modifyParam);
+    String queryOrientationOfLabId(Long id);
 }
