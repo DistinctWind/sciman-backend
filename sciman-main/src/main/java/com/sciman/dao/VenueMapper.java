@@ -3,6 +3,7 @@ package com.sciman.dao;
 import com.github.pagehelper.Page;
 import com.sciman.pojo.Venue;
 import com.sciman.vo.venue.VenueView;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -22,4 +23,7 @@ public interface VenueMapper {
     Venue getVenueById(Long venueId);
 
     Integer updateVenue(Venue venue);
+
+    @Delete("delete from venue where id = #{venueId}")
+    Integer deleteVenueById(Long venueId);
 }
