@@ -3,7 +3,7 @@ package com.sciman.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sciman.dao.ResearcherMapper;
-import com.sciman.dto.researcher.QueryParam;
+import com.sciman.dto.researcher.ResearcherQueryParam;
 import com.sciman.dto.researcher.ResearcherViewQueryResult;
 import com.sciman.pojo.Researcher;
 import com.sciman.service.ResearcherService;
@@ -21,7 +21,7 @@ public class ResearcherServiceImpl implements ResearcherService {
     private final ResearcherMapper researcherMapper;
 
     @Override
-    public ResearcherViewQueryResult listResearcherViewFor(QueryParam queryParam) {
+    public ResearcherViewQueryResult listResearcherViewFor(ResearcherQueryParam queryParam) {
         log.info(queryParam.toString());
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());

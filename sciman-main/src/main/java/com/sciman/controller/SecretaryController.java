@@ -1,6 +1,6 @@
 package com.sciman.controller;
 
-import com.sciman.dto.secretary.QueryParam;
+import com.sciman.dto.secretary.SecretaryQueryParam;
 import com.sciman.pojo.Secretary;
 import com.sciman.service.SecretaryService;
 import com.sciman.utils.result.Result;
@@ -19,7 +19,7 @@ public class SecretaryController {
     }
 
     @PostMapping("/list")
-    public Result list(@RequestBody QueryParam param) {
+    public Result list(@RequestBody SecretaryQueryParam param) {
         return Result.success(secretaryService.getSecretaryViewFor(param));
     }
 

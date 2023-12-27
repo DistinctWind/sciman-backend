@@ -1,6 +1,6 @@
 package com.sciman.controller;
 
-import com.sciman.dto.researcher.QueryParam;
+import com.sciman.dto.researcher.ResearcherQueryParam;
 import com.sciman.pojo.Researcher;
 import com.sciman.service.ResearcherService;
 import com.sciman.utils.result.Result;
@@ -20,7 +20,7 @@ public class ResearcherController {
     }
 
     @PostMapping("/list")
-    public Result list(@RequestBody QueryParam param) {
+    public Result list(@RequestBody ResearcherQueryParam param) {
         return Result.success(researcherService.listResearcherViewFor(param));
     }
 

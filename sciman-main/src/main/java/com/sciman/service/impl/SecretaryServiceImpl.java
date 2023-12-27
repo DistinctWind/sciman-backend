@@ -3,7 +3,7 @@ package com.sciman.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sciman.dao.SecretaryMapper;
-import com.sciman.dto.secretary.QueryParam;
+import com.sciman.dto.secretary.SecretaryQueryParam;
 import com.sciman.dto.secretary.SecretaryViewQueryResult;
 import com.sciman.pojo.Secretary;
 import com.sciman.service.SecretaryService;
@@ -49,7 +49,7 @@ public class SecretaryServiceImpl implements SecretaryService {
     }
 
     @Override
-    public SecretaryViewQueryResult getSecretaryViewFor(QueryParam queryParam) {
+    public SecretaryViewQueryResult getSecretaryViewFor(SecretaryQueryParam queryParam) {
         log.info(queryParam.toString());
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
