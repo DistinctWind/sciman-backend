@@ -53,4 +53,13 @@ public class LabController {
         }
         return Result.fail("查询实验室方向失败");
     }
+
+    @PostMapping("/insert")
+    public Result insert(@RequestBody Laboratory laboratory) {
+        boolean result = labService.insertLaboratory(laboratory);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("添加实验室失败");
+    }
 }

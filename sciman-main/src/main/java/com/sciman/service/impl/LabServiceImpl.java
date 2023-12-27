@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sciman.dao.LabMapper;
 import com.sciman.dao.ServeMapper;
+import com.sciman.dao.StaffMapper;
 import com.sciman.dto.laboratory.LaboratoryQueryParam;
 import com.sciman.dto.laboratory.LaboratorySecretaryModifyParam;
 import com.sciman.dto.laboratory.LaboratoryViewQueryResult;
@@ -20,6 +21,15 @@ import java.util.List;
 public class LabServiceImpl implements LabService {
     private final LabMapper labMapper;
     private final ServeMapper serveMapper;
+    private final StaffMapper staffMapper;
+
+    @Override
+    public boolean insertLaboratory(Laboratory laboratory) {
+        Integer result = labMapper.insert(laboratory);
+        serveMapper.insertServePlaceHolderFor(laboratory.getId());
+        staffMapper.insertStaffPlaceHolderForLabId(laboratory.getId());
+        return result == 1;
+    }
 
     @Override
     public boolean modifyLabSecretary(LaboratorySecretaryModifyParam modifyParam) {
