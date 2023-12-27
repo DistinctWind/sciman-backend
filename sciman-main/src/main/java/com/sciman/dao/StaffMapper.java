@@ -3,6 +3,7 @@ package com.sciman.dao;
 import com.github.pagehelper.Page;
 import com.sciman.pojo.Staff;
 import com.sciman.vo.person.StaffView;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -22,4 +23,7 @@ public interface StaffMapper {
     );
 
     Integer updateStaff(Staff staff);
+
+    @Insert("insert into staff(laboratory_id) value (#{laboratoryId})")
+    Integer insertStaffPlaceHolderForLabId(Integer laboratoryId);
 }
