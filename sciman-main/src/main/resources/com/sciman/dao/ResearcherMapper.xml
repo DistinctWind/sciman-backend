@@ -4,6 +4,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sciman.dao.ResearcherMapper">
+    <insert id="insertResearcher">
+        insert into researcher(laboratory_id, name, gender, title, age, orientation)
+        values (#{laboratoryId}, #{name}, #{gender}, #{title}, #{age}, #{orientation})
+    </insert>
     <update id="updateResearcher">
         update researcher
         set laboratory_id = #{laboratoryId},

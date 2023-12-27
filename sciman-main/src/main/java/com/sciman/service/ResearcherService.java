@@ -17,4 +17,5 @@ public interface ResearcherService {
     boolean modifyResearcher(Researcher researcher);
 
     boolean deleteResearcher(Long id);
+    boolean insertResearcher(Researcher researcher);
 }

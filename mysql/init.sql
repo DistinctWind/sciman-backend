@@ -44,7 +44,7 @@ create table secretary(
 ) comment '秘书信息表';
 
 create table researcher(
-    employee_id int unsigned primary key comment '科研人员工号',
+    employee_id int unsigned auto_increment primary key comment '科研人员工号',
     laboratory_id int unsigned not null comment '所属实验室id',
     name varchar(12) not null comment '姓名',
     gender tinyint unsigned not null comment '性别：1=男，2=女',
