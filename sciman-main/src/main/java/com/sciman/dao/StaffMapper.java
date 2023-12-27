@@ -13,8 +13,13 @@ public interface StaffMapper {
     @Select("select * from staff")
     List<Staff> getAllStaff();
 
+    @Select("select * from staff where id = #{id}")
+    Staff getStaffById(Long id);
+
     Page<StaffView> getStaffViewFor(
             String nameFilter,
             String laboratoryFilter
     );
+
+    Integer updateStaff(Staff staff);
 }

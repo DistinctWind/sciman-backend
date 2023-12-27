@@ -19,13 +19,18 @@ public class StuffServiceImpl implements StuffService {
     private final StaffMapper staffMapper;
 
     @Override
+    public boolean modifyStaff(Staff staff) {
+        return staffMapper.updateStaff(staff) > 0;
+    }
+
+    @Override
     public List<Staff> listAll() {
         return staffMapper.getAllStaff();
     }
 
     @Override
     public Staff getById(Long id) {
-        return null;
+        return staffMapper.getStaffById(id);
     }
 
     @Override

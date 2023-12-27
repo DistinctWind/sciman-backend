@@ -8,7 +8,7 @@ import com.sciman.vo.person.ResearcherView;
 import java.util.List;
 
 public interface ResearcherService {
-    List<ResearcherView> listAllResearcherView();
+    List<ResearcherView> listAllResearcherView(Long laboratoryId);
 
     ResearcherViewQueryResult listResearcherViewFor(ResearcherQueryParam queryParam);
 

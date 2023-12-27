@@ -10,4 +10,6 @@ public interface StuffService {
     List<Staff> listAll();
     Staff getById(Long id);
     StaffViewQueryResult getStaffViewFor(StaffQueryParam queryParam);
+
+    boolean modifyStaff(Staff staff);
 }

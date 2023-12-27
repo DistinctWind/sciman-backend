@@ -57,7 +57,7 @@ public class ResearcherServiceImpl implements ResearcherService {
     }
 
     @Override
-    public List<ResearcherView> listAllResearcherView() {
-        return researcherMapper.listAllResearcherView();
+    public List<ResearcherView> listAllResearcherView(Long laboratoryId) {
+        return researcherMapper.listAllResearcherView(laboratoryId);
     }
 }
