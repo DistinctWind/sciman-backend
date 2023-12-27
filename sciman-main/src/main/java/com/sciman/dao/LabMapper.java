@@ -1,7 +1,7 @@
 package com.sciman.dao;
 
 import com.sciman.pojo.Laboratory;
-import com.sciman.vo.lab.LaboratoryIntroduction;
+import com.sciman.vo.lab.LaboratoryView;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -23,5 +23,5 @@ public interface LabMapper {
     @Delete("delete from laboratory where id = #{id}")
     Integer delete(Integer id);
 
-    List<LaboratoryIntroduction> queryLabIntros(String nameFilter);
+    List<LaboratoryView> queryLabIntros(String nameFilter);
 }
