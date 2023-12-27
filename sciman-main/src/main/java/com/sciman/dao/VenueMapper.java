@@ -28,4 +28,7 @@ public interface VenueMapper {
     Integer deleteVenueById(Long venueId);
 
     Integer insertVenue(Venue venue);
+
+    @Delete("delete from venue where laboratory_id = #{labId}")
+    Integer deleteVenueByLabId(Long labId);
 }

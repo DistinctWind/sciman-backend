@@ -13,7 +13,7 @@ public interface LabMapper {
     List<Laboratory> getAllLabs();
 
     @Delete("delete from laboratory where id = #{id}")
-    Integer delete(Integer id);
+    Integer delete(Long id);
 
     List<LaboratoryView> queryLabIntros(
             String nameFilter

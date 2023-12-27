@@ -1,9 +1,6 @@
 package com.sciman.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface ServeMapper {
@@ -20,6 +17,11 @@ public interface ServeMapper {
 
     @Select("select secretary_id from serve where laboratory_id = #{laboratoryId}")
     Long getLabSecretaryId(
+            Long laboratoryId
+    );
+
+    @Delete("delete from serve where laboratory_id = #{laboratoryId}")
+    Integer deleteServeRelationFor(
             Long laboratoryId
     );
 }

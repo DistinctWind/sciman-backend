@@ -2,9 +2,7 @@ package com.sciman.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.sciman.dao.LabMapper;
-import com.sciman.dao.ServeMapper;
-import com.sciman.dao.StaffMapper;
+import com.sciman.dao.*;
 import com.sciman.dto.laboratory.LaboratoryQueryParam;
 import com.sciman.dto.laboratory.LaboratorySecretaryModifyParam;
 import com.sciman.dto.laboratory.LaboratoryViewQueryResult;
@@ -22,6 +20,8 @@ public class LabServiceImpl implements LabService {
     private final LabMapper labMapper;
     private final ServeMapper serveMapper;
     private final StaffMapper staffMapper;
+    private final ResearcherMapper researcherMapper;
+    private final VenueMapper venueMapper;
 
     @Override
     public boolean insertLaboratory(Laboratory laboratory) {
@@ -56,8 +56,13 @@ public class LabServiceImpl implements LabService {
     }
 
     @Override
-    public Integer delete(Integer id) {
-        return labMapper.delete(id);
+    public boolean delete(Long id) {
+        serveMapper.deleteServeRelationFor(id);
+        staffMapper.deleteStaffByLabId(id);
+        venueMapper.deleteVenueByLabId(id);
+        researcherMapper.deleteResearcherByLabId(id);
+        Integer result = labMapper.delete(id);
+        return result == 1;
     }
 
     @Override

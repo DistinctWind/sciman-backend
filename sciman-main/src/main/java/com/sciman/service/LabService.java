@@ -11,7 +11,7 @@ import java.util.List;
 public interface LabService {
     List<Laboratory> listAllLaboratories();
     List<LaboratoryView> listLaboratoryIntroductionFor(Integer page, Integer count);
-    Integer delete(Integer id);
+    boolean delete(Long id);
     LaboratoryViewQueryResult listLaboratoryViewFor(LaboratoryQueryParam queryParam);
     boolean modifyLabSecretary(LaboratorySecretaryModifyParam modifyParam);
     String queryOrientationOfLabId(Long id);

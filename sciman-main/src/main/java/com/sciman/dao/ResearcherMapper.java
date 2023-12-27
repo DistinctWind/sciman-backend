@@ -26,4 +26,7 @@ public interface ResearcherMapper {
     int deleteResearcher(Long id);
 
     int insertResearcher(Researcher researcher);
+
+    @Delete("delete from researcher where laboratory_id = #{labId}")
+    int deleteResearcherByLabId(Long labId);
 }
