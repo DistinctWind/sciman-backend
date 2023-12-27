@@ -10,17 +10,17 @@
     </insert>
     <select id="queryLabIntros" resultType="com.sciman.vo.lab.LaboratoryView">
         select lab.id, lab.name laboratory_name, r.name stuff_name, secretary.name secretary_name from
-        laboratory lab join staff stuff on lab.id = stuff.id
-        join researcher r on stuff.researcher_id = r.employee_id
-        join serve on lab.id = serve.laboratory_id
-        join secretary on serve.secretary_id = secretary.employee_id
+        laboratory lab left join staff stuff on lab.id = stuff.laboratory_id
+        left join researcher r on stuff.researcher_id = r.employee_id
+        left join serve on lab.id = serve.laboratory_id
+        left join secretary on serve.secretary_id = secretary.employee_id
     </select>
     <select id="listLaboratoryViewFor" resultType="com.sciman.vo.lab.LaboratoryView">
         select lab.id, lab.name laboratory_name, r.name stuff_name, secretary.name secretary_name from
-        laboratory lab join staff stuff on lab.id = stuff.id
-        join researcher r on stuff.researcher_id = r.employee_id
-        join serve on lab.id = serve.laboratory_id
-        join secretary on serve.secretary_id = secretary.employee_id
+        laboratory lab left join staff stuff on lab.id = stuff.laboratory_id
+        left join researcher r on stuff.researcher_id = r.employee_id
+        left join serve on lab.id = serve.laboratory_id
+        left join secretary on serve.secretary_id = secretary.employee_id
         <where>
             <if test="nameFilter != null">
                 lab.name like concat('%', #{nameFilter}, '%')
