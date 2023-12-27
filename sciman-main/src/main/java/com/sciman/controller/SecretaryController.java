@@ -40,4 +40,13 @@ public class SecretaryController {
         }
         return Result.fail("修改秘书信息失败");
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result delete(@PathVariable Long id) {
+        boolean result = secretaryService.deleteSecretaryById(id);
+        if (result) {
+            return Result.success();
+        }
+        return Result.fail("删除秘书信息失败");
+    }
 }
