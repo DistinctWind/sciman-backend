@@ -13,4 +13,7 @@ public interface CountMapper {
 
     @Select("select count(*) from researcher")
     Integer getResearcherCount();
+
+    @Select("select count(*) from venue")
+    Integer getVenueCount();
 }
