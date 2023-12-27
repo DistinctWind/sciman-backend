@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sciman.dao.StaffMapper">
+
+    <select id="getStaffViewFor" resultType="com.sciman.vo.person.StaffView">
+        select s.id as id,
+        r.name researcher_name,
+        l.name laboratory_name,
+        s.due_date as due_date
+        from staff s
+        join researcher r on s.researcher_id = r.employee_id
+        join laboratory l on s.laboratory_id = l.id
+        <where>
+            <if test="nameFilter!=null">
+                r.name like '%${nameFilter}%'
+            </if>
+            <if test="laboratoryFilter!=null">
+                and l.name like '%${laboratoryFilter}%'
+            </if>
+        </where>
+    </select>
+</mapper>
