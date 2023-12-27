@@ -1,6 +1,6 @@
 package com.sciman.service;
 
-import com.sciman.dto.researcher.QueryParam;
+import com.sciman.dto.researcher.ResearcherQueryParam;
 import com.sciman.dto.researcher.ResearcherViewQueryResult;
 import com.sciman.pojo.Researcher;
 import com.sciman.vo.person.ResearcherView;
@@ -10,7 +10,7 @@ import java.util.List;
 public interface ResearcherService {
     List<ResearcherView> listAllResearcherView();
 
-    ResearcherViewQueryResult listResearcherViewFor(QueryParam queryParam);
+    ResearcherViewQueryResult listResearcherViewFor(ResearcherQueryParam queryParam);
 
     Researcher getResearcherView(Long id);
 
