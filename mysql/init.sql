@@ -68,11 +68,11 @@ create table organization(
 ) comment '外部单位信息表';
 
 create table project(
-    project_id int unsigned primary key comment '项目号',
+    project_id int unsigned auto_increment primary key comment '项目号',
     main_researcher_id int unsigned comment '项目负责人id',
     name varchar(64) comment '项目名称',
     content varchar(512) comment '项目内容',
-    budget decimal(20, 2) comment '项目预算，单位元',
+    budget int unsigned comment '项目预算，单位元',
     begin_date date comment '项目起始时间',
     end_date date comment '项目完成时间',
     client_organization_id int unsigned comment '委托方单位id',
@@ -84,7 +84,7 @@ create table subproject(
     project_id int unsigned comment '所属项目id',
     principal_id int unsigned comment '科研人员负责人id',
     due_date date comment '完成时间要求',
-    budget decimal(20, 2) comment '子课题经费',
+    budget int unsigned comment '子课题经费',
     tech_description varchar(512) comment '技术指标'
 ) comment '子课题信息表';
 
