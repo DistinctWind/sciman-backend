@@ -32,4 +32,9 @@ public class ProjectController {
         }
         return Result.success(result);
     }
+
+    @GetMapping("/view/{id}")
+    public Result projectViewOf(@PathVariable Long id) {
+        return Result.success(projectService.getProjectViewOf(id));
+    }
 }
