@@ -15,5 +15,10 @@
         from project p
                  left join researcher r on p.main_researcher_id = r.employee_id
                  left join organization o on p.client_organization_id = o.id
+        <where>
+            <if test="projectNameFilter!=null">
+                p.name like concat('%', #{projectNameFilter}, '%')
+            </if>
+        </where>
     </select>
 </mapper>

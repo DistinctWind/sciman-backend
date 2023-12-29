@@ -10,8 +10,10 @@ import lombok.NoArgsConstructor;
 public class ProjectQueryParam {
     private Integer page;
     private Integer pageSize;
+    private String projectNameFilter;
 
     public void normalize() {
-
+        if (projectNameFilter != null && projectNameFilter.isEmpty())
+            projectNameFilter = null;
     }
 }

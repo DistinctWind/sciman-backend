@@ -13,5 +13,7 @@ public interface ProjectMapper {
     @Select("select * from project")
     List<Project> getAllProjects();
 
-    Page<ProjectView> getProjectViewsFor();
+    Page<ProjectView> getProjectViewsFor(
+            String projectNameFilter
+    );
 }

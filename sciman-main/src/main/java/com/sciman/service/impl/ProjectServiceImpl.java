@@ -22,7 +22,9 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectViewQueryResult getProjectViewsFor(ProjectQueryParam queryParam) {
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
-        Page<ProjectView> projectViews = projectMapper.getProjectViewsFor();
+        Page<ProjectView> projectViews = projectMapper.getProjectViewsFor(
+                queryParam.getProjectNameFilter()
+        );
         return new ProjectViewQueryResult(projectViews.getTotal(), projectViews.getResult());
     }
 
