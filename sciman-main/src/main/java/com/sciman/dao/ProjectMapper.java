@@ -21,4 +21,7 @@ public interface ProjectMapper {
     ProjectView getProjectViewOf(
             Long projectId
     );
+
+    @Select("select * from project where project_id = #{id}")
+    Project getProjectById(Long id);
 }

@@ -23,8 +23,14 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDetailView getProjectDetailViewOf(Long projectId) {
+        Project project = projectMapper.getProjectById(projectId);
         ProjectDetailView result = new ProjectDetailView();
         result.setProject(getProjectViewOf(projectId));
+        result.setClientOrganization(
+                organizationService.getOrganizationViewByOrganizationId(
+                    project.getClientOrganizationId()
+                )
+        );
         return result;
     }
 
