@@ -25,4 +25,17 @@
             </if>
         </where>
     </select>
+    <select id="getProjectViewOf" resultType="com.sciman.vo.project.ProjectView">
+        select project_id,
+               r.name as main_researcher_name,
+               p.name as name,
+               begin_date,
+               end_date,
+               o.name as client_organization_name,
+               budget
+        from project p
+                 left join researcher r on p.main_researcher_id = r.employee_id
+                 left join organization o on p.client_organization_id = o.id
+        where project_id = ${projectId}
+    </select>
 </mapper>

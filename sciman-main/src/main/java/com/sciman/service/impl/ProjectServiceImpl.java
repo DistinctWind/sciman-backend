@@ -7,6 +7,7 @@ import com.sciman.dto.project.ProjectQueryParam;
 import com.sciman.dto.project.ProjectViewQueryResult;
 import com.sciman.pojo.Project;
 import com.sciman.service.ProjectService;
+import com.sciman.vo.project.ProjectDetailView;
 import com.sciman.vo.project.ProjectView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,18 @@ import java.util.List;
 @Service
 public class ProjectServiceImpl implements ProjectService {
     private final ProjectMapper projectMapper;
+
+    @Override
+    public ProjectDetailView getProjectDetailViewOf(Long projectId) {
+        ProjectDetailView result = new ProjectDetailView();
+        result.setProject(getProjectViewOf(projectId));
+        return result;
+    }
+
+    @Override
+    public ProjectView getProjectViewOf(Long projectId) {
+        return projectMapper.getProjectViewOf(projectId);
+    }
 
     @Override
     public ProjectViewQueryResult getProjectViewsFor(ProjectQueryParam queryParam) {

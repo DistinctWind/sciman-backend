@@ -17,4 +17,8 @@ public interface ProjectMapper {
             String projectNameFilter,
             String mainResearcherNameFilter
     );
+
+    ProjectView getProjectViewOf(
+            Long projectId
+    );
 }
