@@ -19,6 +19,9 @@
             <if test="projectNameFilter!=null">
                 p.name like concat('%', #{projectNameFilter}, '%')
             </if>
+            <if test="mainResearcherNameFilter!=null">
+                r.name like concat('%', #{mainResearcherNameFilter}, '%')
+            </if>
         </where>
     </select>
 </mapper>

@@ -11,9 +11,12 @@ public class ProjectQueryParam {
     private Integer page;
     private Integer pageSize;
     private String projectNameFilter;
+    private String mainResearcherNameFilter;
 
     public void normalize() {
         if (projectNameFilter != null && projectNameFilter.isEmpty())
             projectNameFilter = null;
+        if (mainResearcherNameFilter != null && mainResearcherNameFilter.isEmpty())
+            mainResearcherNameFilter = null;
     }
 }

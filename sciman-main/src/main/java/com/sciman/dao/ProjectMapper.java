@@ -14,6 +14,7 @@ public interface ProjectMapper {
     List<Project> getAllProjects();
 
     Page<ProjectView> getProjectViewsFor(
-            String projectNameFilter
+            String projectNameFilter,
+            String mainResearcherNameFilter
     );
 }
