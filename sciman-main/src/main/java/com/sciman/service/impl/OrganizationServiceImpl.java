@@ -5,6 +5,7 @@ import com.sciman.dao.OrganizationMapper;
 import com.sciman.pojo.Contact;
 import com.sciman.pojo.Organization;
 import com.sciman.service.OrganizationService;
+import com.sciman.vo.project.OrganizationView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,23 @@ public class OrganizationServiceImpl implements OrganizationService {
             throw new RuntimeException("Organization not found");
         Long principalContactId = organization.getPrincipalContactId();
         return contactMapper.getContactById(principalContactId);
+    }
+
+    @Override
+    public OrganizationView getOrganizationViewByOrganizationId(Long organizationId) {
+        Organization organization = organizationMapper.getOrganizationById(organizationId);
+        if (organization == null)
+            throw new RuntimeException("Organization not found");
+        Long principalContactId = organization.getPrincipalContactId();
+        Contact principalContact = contactMapper.getContactById(principalContactId);
+        List<Contact> secondaryContacts = organizationMapper.getSecondaryContactsByOrganizationId(organizationId);
+        return new OrganizationView(
+                organization.getId(),
+                organization.getName(),
+                organization.getAddress(),
+                principalContact,
+                secondaryContacts
+        );
     }
 
     @Override

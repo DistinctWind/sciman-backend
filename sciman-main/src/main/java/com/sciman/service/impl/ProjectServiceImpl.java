@@ -6,6 +6,7 @@ import com.sciman.dao.ProjectMapper;
 import com.sciman.dto.project.ProjectQueryParam;
 import com.sciman.dto.project.ProjectViewQueryResult;
 import com.sciman.pojo.Project;
+import com.sciman.service.OrganizationService;
 import com.sciman.service.ProjectService;
 import com.sciman.vo.project.ProjectDetailView;
 import com.sciman.vo.project.ProjectView;
@@ -18,6 +19,7 @@ import java.util.List;
 @Service
 public class ProjectServiceImpl implements ProjectService {
     private final ProjectMapper projectMapper;
+    private final OrganizationService organizationService;
 
     @Override
     public ProjectDetailView getProjectDetailViewOf(Long projectId) {
