@@ -1,12 +1,10 @@
 package com.sciman.controller;
 
+import com.sciman.dto.project.ProjectQueryParam;
 import com.sciman.service.ProjectService;
 import com.sciman.utils.result.Result;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/project")
@@ -18,5 +16,10 @@ public class ProjectController {
     @GetMapping("/listAll")
     public Result listAllProjects() {
         return Result.success(projectService.getAllProjects());
+    }
+
+    @PostMapping("/list")
+    public Result listProjects(@RequestBody ProjectQueryParam queryParam) {
+        return Result.success(projectService.getProjectViewsFor(queryParam));
     }
 }
