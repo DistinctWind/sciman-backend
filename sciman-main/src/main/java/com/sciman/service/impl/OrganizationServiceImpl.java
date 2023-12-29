@@ -29,6 +29,9 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     public List<Contact> getSecondaryContactsByOrganizationId(Long organizationId) {
-        return null;
+        Organization organization = organizationMapper.getOrganizationById(organizationId);
+        if (organization == null)
+            throw new RuntimeException("Organization not found");
+        return organizationMapper.getSecondaryContactsByOrganizationId(organizationId);
     }
 }
