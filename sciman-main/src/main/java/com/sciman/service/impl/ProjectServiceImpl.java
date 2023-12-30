@@ -9,6 +9,7 @@ import com.sciman.dao.SubprojectMapper;
 import com.sciman.dto.project.ProjectQueryParam;
 import com.sciman.dto.project.ProjectViewQueryResult;
 import com.sciman.pojo.Project;
+import com.sciman.service.CoworkerOrganizationService;
 import com.sciman.service.OrganizationService;
 import com.sciman.service.ProjectService;
 import com.sciman.vo.project.ProjectDetailView;
@@ -26,6 +27,7 @@ public class ProjectServiceImpl implements ProjectService {
     private final ResearcherMapper researcherMapper;
     private final AttendProjectMapper attendProjectMapper;
     private final SubprojectMapper subprojectMapper;
+    private final CoworkerOrganizationService coworkerOrganizationService;
 
     @Override
     public ProjectDetailView getProjectDetailViewOf(Long projectId) {
@@ -45,6 +47,9 @@ public class ProjectServiceImpl implements ProjectService {
         );
         result.setSubprojects(
                 subprojectMapper.getSubprojectViewsOfProjectId(projectId)
+        );
+        result.setCoworkerOrganizations(
+                coworkerOrganizationService.getCoworkerOrganizationViewsOfProjectId(projectId)
         );
         return result;
     }
