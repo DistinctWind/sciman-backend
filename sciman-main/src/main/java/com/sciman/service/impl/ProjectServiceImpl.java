@@ -2,6 +2,7 @@ package com.sciman.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.sciman.dao.AttendProjectMapper;
 import com.sciman.dao.ProjectMapper;
 import com.sciman.dao.ResearcherMapper;
 import com.sciman.dto.project.ProjectQueryParam;
@@ -22,6 +23,7 @@ public class ProjectServiceImpl implements ProjectService {
     private final ProjectMapper projectMapper;
     private final OrganizationService organizationService;
     private final ResearcherMapper researcherMapper;
+    private final AttendProjectMapper attendProjectMapper;
 
     @Override
     public ProjectDetailView getProjectDetailViewOf(Long projectId) {
@@ -35,6 +37,9 @@ public class ProjectServiceImpl implements ProjectService {
         );
         result.setMainResearcher(
             researcherMapper.getResearcherViewFor(project.getMainResearcherId())
+        );
+        result.setProjectAttendances(
+                attendProjectMapper.getProjectAttendanceViewOfProjectId(projectId)
         );
         return result;
     }
