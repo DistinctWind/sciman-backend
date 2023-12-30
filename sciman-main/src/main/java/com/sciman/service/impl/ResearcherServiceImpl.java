@@ -33,7 +33,13 @@ public class ResearcherServiceImpl implements ResearcherService {
     }
 
     @Override
-    public Researcher getResearcherView(Long id) {
+    public ResearcherView getResearcherView(Long id) {
+        log.info("querying researcher view with id: {}", id);
+        return researcherMapper.getResearcherViewFor(id);
+    }
+
+    @Override
+    public Researcher getResearcher(Long id) {
         log.info("querying researcher with id: {}", id);
         return researcherMapper.getResearcherId(id);
     }

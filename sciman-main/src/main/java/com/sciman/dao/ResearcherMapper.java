@@ -12,6 +12,8 @@ import java.util.List;
 public interface ResearcherMapper {
     List<ResearcherView> listAllResearcherView(Long laboratoryId);
 
+    ResearcherView getResearcherViewFor(Long id);
+
     Page<ResearcherView> listResearcherView(
             String nameFilter,
             String laboratoryNameFilter

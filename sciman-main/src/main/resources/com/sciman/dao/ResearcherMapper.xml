@@ -55,4 +55,9 @@
             </if>
         </where>
     </select>
+    <select id="getResearcherViewFor" resultType="com.sciman.vo.person.ResearcherView">
+        select employee_id, l.name laboratory_name, r.name as name, gender, age
+        from researcher r join laboratory l on r.laboratory_id = l.id
+        where r.employee_id = #{employeeId}
+    </select>
 </mapper>

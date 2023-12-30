@@ -3,6 +3,7 @@ package com.sciman.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sciman.dao.ProjectMapper;
+import com.sciman.dao.ResearcherMapper;
 import com.sciman.dto.project.ProjectQueryParam;
 import com.sciman.dto.project.ProjectViewQueryResult;
 import com.sciman.pojo.Project;
@@ -20,6 +21,7 @@ import java.util.List;
 public class ProjectServiceImpl implements ProjectService {
     private final ProjectMapper projectMapper;
     private final OrganizationService organizationService;
+    private final ResearcherMapper researcherMapper;
 
     @Override
     public ProjectDetailView getProjectDetailViewOf(Long projectId) {
@@ -30,6 +32,9 @@ public class ProjectServiceImpl implements ProjectService {
                 organizationService.getOrganizationViewByOrganizationId(
                     project.getClientOrganizationId()
                 )
+        );
+        result.setMainResearcher(
+            researcherMapper.getResearcherViewFor(project.getMainResearcherId())
         );
         return result;
     }
