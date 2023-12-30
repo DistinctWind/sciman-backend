@@ -18,5 +18,10 @@
     <select id="getOrganizationsFor" resultType="com.sciman.pojo.Organization">
         select *
         from organization o
+        <where>
+            <if test="nameFilter != null">
+                o.name like concat('%', #{nameFilter}, '%')
+            </if>
+        </where>
     </select>
 </mapper>

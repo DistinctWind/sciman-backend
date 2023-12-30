@@ -10,8 +10,11 @@ import lombok.NoArgsConstructor;
 public class OrganizationQueryParam {
     private Integer page;
     private Integer pageSize;
+    private String nameFilter;
 
     public void normalize() {
-
+        if (nameFilter != null && nameFilter.isEmpty()) {
+            nameFilter = null;
+        }
     }
 }

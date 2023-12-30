@@ -38,7 +38,9 @@ public class OrganizationServiceImpl implements OrganizationService {
         log.info("querying organization view of: {}", queryParam);
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
-        Page<Organization> organizations = organizationMapper.getOrganizationsFor();
+        Page<Organization> organizations = organizationMapper.getOrganizationsFor(
+                queryParam.getNameFilter()
+        );
         List<Organization> resultOrganizations = organizations.getResult();
         List<OrganizationView> resultOrganizationViews = new ArrayList<>();
         for (Organization organization : resultOrganizations) {
