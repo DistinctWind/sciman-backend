@@ -1,5 +1,6 @@
 package com.sciman.controller;
 
+import com.sciman.dto.organization.OrganizationQueryParam;
 import com.sciman.service.OrganizationService;
 import com.sciman.utils.result.Result;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,15 @@ public class OrganizationController {
     public Result getOrganizationViewByOrganizationId(@PathVariable Long id) {
         try {
             return Result.success(organizationService.getOrganizationViewByOrganizationId(id));
+        } catch (RuntimeException e) {
+            return Result.fail(e.getMessage());
+        }
+    }
+
+    @PostMapping("/list")
+    public Result list(@RequestBody OrganizationQueryParam queryParam) {
+        try {
+            return Result.success(organizationService.getOrganizationViewsOf(queryParam));
         } catch (RuntimeException e) {
             return Result.fail(e.getMessage());
         }

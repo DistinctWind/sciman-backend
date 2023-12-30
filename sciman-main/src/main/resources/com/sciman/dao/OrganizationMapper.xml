@@ -15,4 +15,8 @@
                  join contact c on osc.contact_id = c.id
         where o.id = #{organizationId}
     </select>
+    <select id="getOrganizationsFor" resultType="com.sciman.pojo.Organization">
+        select *
+        from organization o
+    </select>
 </mapper>
