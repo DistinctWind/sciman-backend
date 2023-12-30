@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sciman.dao.OrganizationMapper">
+
+    <select id="getSecondaryContactsByOrganizationId" resultType="com.sciman.pojo.Contact">
+        select c.id            as id,
+               c.office_phone_no  office_phoneNo,
+               c.mobile_phone_no  mobile_phoneNo,
+               c.email_address as email_address
+        from organization o
+                 join organization_secondary_contact osc on osc.organization_id = o.id
+                 join contact c on osc.contact_id = c.id
+        where o.id = #{organizationId}
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sciman.dao.CoworkerOrganizationMapper">
+    <select id="getCoworkerOrganizationViewsOfProjectId" resultType="com.sciman.vo.project.OrganizationView">
+        select
+            o.id as id,
+            o.name as organization_name,
+            o.address as address
+        from project_coworker_organization pco
+        join project p on pco.project_id = p.project_id
+        join organization o on pco.coworker_organization_id = o.id
+        where p.project_id = #{projectId}
+    </select>
+</mapper>

@@ -81,6 +81,7 @@ create table project(
 
 create table subproject(
     id int unsigned auto_increment primary key comment '子课题id',
+    name varchar(32) comment '子课题名称',
     project_id int unsigned comment '所属项目id',
     principal_id int unsigned comment '科研人员负责人id',
     due_date date comment '完成时间要求',

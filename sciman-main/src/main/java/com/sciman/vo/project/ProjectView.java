@@ -15,5 +15,6 @@ public class ProjectView {
     private String name;
     private LocalDate beginDate;
     private LocalDate endDate;
+    private Integer budget;
     private String clientOrganizationName;
 }

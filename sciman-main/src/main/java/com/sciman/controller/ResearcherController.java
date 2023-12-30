@@ -34,7 +34,7 @@ public class ResearcherController {
 
     @GetMapping("/detail/{id}")
     public Result detail(@PathVariable Long id) {
-        Researcher researcher = researcherService.getResearcherView(id);
+        Researcher researcher = researcherService.getResearcher(id);
         if (researcher == null) {
             return Result.fail("researcher not found");
         }
@@ -63,5 +63,14 @@ public class ResearcherController {
             return Result.success();
         }
         return Result.fail("insert failed");
+    }
+
+    @GetMapping("/view/{id}")
+    public Result view(@PathVariable Long id) {
+        ResearcherView researcherView = researcherService.getResearcherView(id);
+        if (researcherView == null) {
+            return Result.fail("researcher not found");
+        }
+        return Result.success(researcherView);
     }
 }

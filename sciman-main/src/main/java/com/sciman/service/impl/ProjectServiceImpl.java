@@ -2,11 +2,17 @@ package com.sciman.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.sciman.dao.AttendProjectMapper;
 import com.sciman.dao.ProjectMapper;
+import com.sciman.dao.ResearcherMapper;
+import com.sciman.dao.SubprojectMapper;
 import com.sciman.dto.project.ProjectQueryParam;
 import com.sciman.dto.project.ProjectViewQueryResult;
 import com.sciman.pojo.Project;
+import com.sciman.service.CoworkerOrganizationService;
+import com.sciman.service.OrganizationService;
 import com.sciman.service.ProjectService;
+import com.sciman.vo.project.ProjectDetailView;
 import com.sciman.vo.project.ProjectView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +23,41 @@ import java.util.List;
 @Service
 public class ProjectServiceImpl implements ProjectService {
     private final ProjectMapper projectMapper;
+    private final OrganizationService organizationService;
+    private final ResearcherMapper researcherMapper;
+    private final AttendProjectMapper attendProjectMapper;
+    private final SubprojectMapper subprojectMapper;
+    private final CoworkerOrganizationService coworkerOrganizationService;
+
+    @Override
+    public ProjectDetailView getProjectDetailViewOf(Long projectId) {
+        Project project = projectMapper.getProjectById(projectId);
+        ProjectDetailView result = new ProjectDetailView();
+        result.setProject(getProjectViewOf(projectId));
+        result.setClientOrganization(
+                organizationService.getOrganizationViewByOrganizationId(
+                    project.getClientOrganizationId()
+                )
+        );
+        result.setMainResearcher(
+            researcherMapper.getResearcherViewFor(project.getMainResearcherId())
+        );
+        result.setProjectAttendances(
+                attendProjectMapper.getProjectAttendanceViewOfProjectId(projectId)
+        );
+        result.setSubprojects(
+                subprojectMapper.getSubprojectViewsOfProjectId(projectId)
+        );
+        result.setCoworkerOrganizations(
+                coworkerOrganizationService.getCoworkerOrganizationViewsOfProjectId(projectId)
+        );
+        return result;
+    }
+
+    @Override
+    public ProjectView getProjectViewOf(Long projectId) {
+        return projectMapper.getProjectViewOf(projectId);
+    }
 
     @Override
     public ProjectViewQueryResult getProjectViewsFor(ProjectQueryParam queryParam) {
