@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.sciman.dao.AttendProjectMapper;
 import com.sciman.dao.ProjectMapper;
 import com.sciman.dao.ResearcherMapper;
+import com.sciman.dao.SubprojectMapper;
 import com.sciman.dto.project.ProjectQueryParam;
 import com.sciman.dto.project.ProjectViewQueryResult;
 import com.sciman.pojo.Project;
@@ -24,6 +25,7 @@ public class ProjectServiceImpl implements ProjectService {
     private final OrganizationService organizationService;
     private final ResearcherMapper researcherMapper;
     private final AttendProjectMapper attendProjectMapper;
+    private final SubprojectMapper subprojectMapper;
 
     @Override
     public ProjectDetailView getProjectDetailViewOf(Long projectId) {
@@ -40,6 +42,9 @@ public class ProjectServiceImpl implements ProjectService {
         );
         result.setProjectAttendances(
                 attendProjectMapper.getProjectAttendanceViewOfProjectId(projectId)
+        );
+        result.setSubprojects(
+                subprojectMapper.getSubprojectViewsOfProjectId(projectId)
         );
         return result;
     }

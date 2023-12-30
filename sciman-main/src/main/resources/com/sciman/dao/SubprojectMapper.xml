@@ -6,14 +6,18 @@
 <mapper namespace="com.sciman.dao.SubprojectMapper">
 
     <select id="getSubprojectViewsOfProjectId" resultType="com.sciman.vo.project.SubprojectView">
-        select s.id         as subproject_id,
-               s.name       as subproject_name,
-               s.due_date   as due_date,
-               s.budget     as budget,
-               s.project_id as project_id,
-               p.name       as project_name
+        select s.id               as id,
+               s.name             as subproject_name,
+               s.due_date         as due_date,
+               s.budget           as budget,
+               s.project_id       as project_id,
+               p.name             as project_name,
+               s.tech_description as tech_description,
+               r.name             as principal_researcher_name
+
         from subproject s
                  join project p on s.project_id = p.project_id
+                 join researcher r on s.principal_id = r.employee_id
         where s.project_id = #{projectId}
     </select>
 </mapper>
