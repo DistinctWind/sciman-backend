@@ -12,4 +12,8 @@ public interface ContactService {
     boolean updateContact(Contact contact);
 
     boolean deleteContact(Long id);
+
+    boolean addContact(Contact contact);
+
+    boolean addContact(Contact contact, Long organizationId);
 }

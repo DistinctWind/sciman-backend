@@ -5,12 +5,14 @@ import com.sciman.pojo.Contact;
 import com.sciman.service.ContactService;
 import com.sciman.utils.result.Result;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin
+@Slf4j
 @RequestMapping("/contact")
 public class ContactController {
     private final ContactService contactService;
@@ -39,6 +41,25 @@ public class ContactController {
             return Result.success();
         } else {
             return Result.fail("删除失败");
+        }
+    }
+
+    @PostMapping("/add")
+    public Result addContact(@RequestBody Contact contact) {
+        log.warn("Warning: /add doesn't meant to add a organization SecondaryContact.");
+        if (contactService.addContact(contact)) {
+            return Result.success();
+        } else {
+            return Result.fail("添加失败");
+        }
+    }
+
+    @PostMapping("/add/{organizationId}")
+    public Result addContact(@RequestBody Contact contact, @PathVariable Long organizationId) {
+        if (contactService.addContact(contact, organizationId)) {
+            return Result.success();
+        } else {
+            return Result.fail("添加失败");
         }
     }
 }

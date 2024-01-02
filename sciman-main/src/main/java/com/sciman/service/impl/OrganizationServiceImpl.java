@@ -3,6 +3,7 @@ package com.sciman.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sciman.dao.ContactMapper;
+import com.sciman.dao.SecondaryContactMapper;
 import com.sciman.dao.OrganizationMapper;
 import com.sciman.dto.organization.OrganizationQueryParam;
 import com.sciman.dto.organization.OrganizationViewQueryResult;
