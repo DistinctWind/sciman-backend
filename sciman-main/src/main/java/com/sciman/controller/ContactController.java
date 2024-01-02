@@ -5,6 +5,7 @@ import com.sciman.pojo.Contact;
 import com.sciman.service.ContactService;
 import com.sciman.utils.result.Result;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,4 +33,12 @@ public class ContactController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public Result deleteContact(@PathVariable Long id) {
+        if (contactService.deleteContact(id)) {
+            return Result.success();
+        } else {
+            return Result.fail("删除失败");
+        }
+    }
 }

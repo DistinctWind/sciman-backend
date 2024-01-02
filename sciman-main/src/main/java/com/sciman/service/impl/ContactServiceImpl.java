@@ -18,6 +18,11 @@ public class ContactServiceImpl implements ContactService {
     private final OrganizationMapper organizationMapper;
 
     @Override
+    public boolean deleteContact(Long id) {
+        return contactMapper.deleteContact(id) == 1;
+    }
+
+    @Override
     public boolean updateContact(Contact contact) {
         return contactMapper.updateContact(contact) == 1;
     }
