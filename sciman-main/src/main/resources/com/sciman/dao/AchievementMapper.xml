@@ -15,5 +15,13 @@
             a.classification as classification,
             a.ranking_factor as ranking_factor
         from achievement a join project p on a.project_id = p.project_id
+        <where>
+            <if test="projectId != null">
+                and a.project_id = #{projectId}
+            </if>
+            <if test="nameFilter != null">
+                and a.name like concat('%', #{nameFilter}, '%')
+            </if>
+        </where>
     </select>
 </mapper>

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AchievementMapper {
     Page<AchievementView> getAchievementList(
-
+        String nameFilter,
+        Long projectId
     );
 }
