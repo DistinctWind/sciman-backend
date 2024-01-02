@@ -4,6 +4,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sciman.dao.ContactMapper">
+    <insert id="addContact" useGeneratedKeys="true" keyProperty="id">
+        insert into contact (office_phone_no, mobile_phone_no, email_address)
+        values (#{officePhoneNo}, #{mobilePhoneNo}, #{emailAddress})
+    </insert>
     <update id="updateContact">
         update contact
         set office_phone_no = #{officePhoneNo},

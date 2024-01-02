@@ -1,6 +1,7 @@
 package com.sciman.service.impl;
 
 import com.sciman.dao.ContactMapper;
+import com.sciman.dao.SecondaryContactMapper;
 import com.sciman.dao.CoworkerOrganizationMapper;
 import com.sciman.dao.OrganizationMapper;
 import com.sciman.service.CoworkerOrganizationService;
