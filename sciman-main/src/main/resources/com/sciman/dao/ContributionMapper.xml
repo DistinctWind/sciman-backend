@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sciman.dao.ContributionMapper">
+
+    <select id="getContributionList" resultType="com.sciman.vo.contribution.ContributionView">
+        select ac.id as id,
+               r.name as researcher_name,
+               a.name as achievement_name
+        from achievement_contribution ac
+                 left join researcher r on ac.researcher_id = r.employee_id
+                 left join achievement a on ac.achievement_id = a.id
+        <where>
+            <if test="achievementId != null">
+                and ac.achievement_id = #{achievementId}
+            </if>
+        </where>
+    </select>
+</mapper>
