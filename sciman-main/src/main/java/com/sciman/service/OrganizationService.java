@@ -1,5 +1,7 @@
 package com.sciman.service;
 
+import com.sciman.dto.organization.OrganizationQueryParam;
+import com.sciman.dto.organization.OrganizationViewQueryResult;
 import com.sciman.pojo.Contact;
 import com.sciman.vo.project.OrganizationView;
 
@@ -9,4 +11,5 @@ public interface OrganizationService {
     Contact getPrincipalContactByOrganizationId(Long organizationId);
     List<Contact> getSecondaryContactsByOrganizationId(Long organizationId);
     OrganizationView getOrganizationViewByOrganizationId(Long organizationId);
+    OrganizationViewQueryResult getOrganizationViewsOf(OrganizationQueryParam queryParam);
 }

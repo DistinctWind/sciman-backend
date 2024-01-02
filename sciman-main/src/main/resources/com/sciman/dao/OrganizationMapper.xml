@@ -15,4 +15,13 @@
                  join contact c on osc.contact_id = c.id
         where o.id = #{organizationId}
     </select>
+    <select id="getOrganizationsFor" resultType="com.sciman.pojo.Organization">
+        select *
+        from organization o
+        <where>
+            <if test="nameFilter != null">
+                o.name like concat('%', #{nameFilter}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>
