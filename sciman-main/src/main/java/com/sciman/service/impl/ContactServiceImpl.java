@@ -18,6 +18,11 @@ public class ContactServiceImpl implements ContactService {
     private final OrganizationMapper organizationMapper;
 
     @Override
+    public boolean updateContact(Contact contact) {
+        return contactMapper.updateContact(contact) == 1;
+    }
+
+    @Override
     public ContactQueryResult getContactList(ContactQueryParam queryParam) {
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
         Page<Contact> contactList = organizationMapper.getSecondaryContactsByOrganizationIdParamed(

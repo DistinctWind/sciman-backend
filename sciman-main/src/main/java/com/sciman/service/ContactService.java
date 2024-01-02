@@ -8,4 +8,6 @@ public interface ContactService {
     Contact getContactById(Long id);
 
     ContactQueryResult getContactList(ContactQueryParam queryParam);
+
+    boolean updateContact(Contact contact);
 }

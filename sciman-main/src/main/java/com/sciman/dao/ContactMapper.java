@@ -9,4 +9,6 @@ import org.apache.ibatis.annotations.Select;
 public interface ContactMapper {
     @Select("select * from contact where id = #{id}")
     Contact getContactById(Long id);
+
+    Integer updateContact(Contact contact);
 }
