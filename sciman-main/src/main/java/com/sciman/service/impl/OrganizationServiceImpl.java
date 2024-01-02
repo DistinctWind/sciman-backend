@@ -25,6 +25,11 @@ public class OrganizationServiceImpl implements OrganizationService {
     private final OrganizationMapper organizationMapper;
 
     @Override
+    public List<OrganizationView> listAllOrganization() {
+        return organizationMapper.getBasicOrganizationViews();
+    }
+
+    @Override
     public Contact getPrincipalContactByOrganizationId(Long organizationId) {
         Organization organization = organizationMapper.getOrganizationById(organizationId);
         if (organization == null)

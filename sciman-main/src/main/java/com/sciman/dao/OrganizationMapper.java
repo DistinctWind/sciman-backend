@@ -16,7 +16,11 @@ public interface OrganizationMapper {
 
     List<Contact> getSecondaryContactsByOrganizationId(Long organizationId);
 
+    Page<Contact> getSecondaryContactsByOrganizationIdParamed(Long organizationId);
+
     Page<Organization> getOrganizationsFor(
             String nameFilter
     );
+
+    List<OrganizationView> getBasicOrganizationViews();
 }

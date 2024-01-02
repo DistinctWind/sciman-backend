@@ -47,4 +47,13 @@ public class OrganizationController {
             return Result.fail(e.getMessage());
         }
     }
+
+    @GetMapping("/listAll")
+    public Result listAll() {
+        try {
+            return Result.success(organizationService.listAllOrganization());
+        } catch (RuntimeException e) {
+            return Result.fail(e.getMessage());
+        }
+    }
 }

@@ -24,4 +24,19 @@
             </if>
         </where>
     </select>
+    <select id="getSecondaryContactsByOrganizationIdParamed" resultType="com.sciman.pojo.Contact">
+        select c.id            as id,
+               c.office_phone_no  office_phoneNo,
+               c.mobile_phone_no  mobile_phoneNo,
+               c.email_address as email_address
+        from organization o
+                 join organization_secondary_contact osc on osc.organization_id = o.id
+                 join contact c on osc.contact_id = c.id
+        where o.id = #{organizationId}
+    </select>
+    <select id="getBasicOrganizationViews" resultType="com.sciman.vo.project.OrganizationView">
+        select o.id   as id,
+               o.name as organizationName
+        from organization o
+    </select>
 </mapper>
