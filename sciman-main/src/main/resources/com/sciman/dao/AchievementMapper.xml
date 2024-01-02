@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sciman.dao.AchievementMapper">
+
+
+    <select id="getAchievementList" resultType="com.sciman.vo.achievement.AchievementView">
+        select
+            a.id as id,
+            p.name as project_name,
+            a.name as name,
+            a.achieve_date as achieve_date,
+            a.classification as classification,
+            a.ranking_factor as ranking_factor
+        from achievement a join project p on a.project_id = p.project_id
+    </select>
+</mapper>
