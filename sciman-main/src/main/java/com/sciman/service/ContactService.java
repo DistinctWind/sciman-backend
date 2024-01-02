@@ -10,4 +10,6 @@ public interface ContactService {
     ContactQueryResult getContactList(ContactQueryParam queryParam);
 
     boolean updateContact(Contact contact);
+
+    boolean deleteContact(Long id);
 }
