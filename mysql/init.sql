@@ -54,7 +54,7 @@ create table researcher(
 ) comment '科研人员信息表';
 
 create table contact(
-    id int unsigned primary key comment '联系人id',
+    id int unsigned auto_increment primary key comment '联系人id',
     office_phone_no char(9) comment '办公电话',
     mobile_phone_no char(11) comment '移动电话',
     email_address varchar(64) comment '邮箱地址'
