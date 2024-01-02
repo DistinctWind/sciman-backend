@@ -3,6 +3,7 @@ package com.sciman.dao;
 import com.github.pagehelper.Page;
 import com.sciman.pojo.Contact;
 import com.sciman.pojo.Organization;
+import com.sciman.vo.project.OrganizationView;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -20,4 +21,6 @@ public interface OrganizationMapper {
     Page<Organization> getOrganizationsFor(
             String nameFilter
     );
+
+    List<OrganizationView> getBasicOrganizationViews();
 }
