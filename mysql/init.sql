@@ -92,6 +92,7 @@ create table subproject(
 create table achievement(
     id int unsigned auto_increment primary key comment '科研成果id',
     name varchar(64) comment '科研成果名称',
+    project_id int unsigned comment '所属项目id',
     achieve_date date comment '成果取得时间',
     ranking_factor double comment '在排名中的比重',
     classification tinyint comment '分类信息：1=发明专利；2=实用新型专利；3=外观专利；4=论文；5=软件著作权'

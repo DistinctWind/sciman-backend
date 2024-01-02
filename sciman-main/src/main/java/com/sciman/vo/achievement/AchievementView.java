@@ -1,0 +1,19 @@
+package com.sciman.vo.achievement;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AchievementView {
+    private Long id;
+    private String name;
+    private String projectName;
+    private LocalDate achieveDate;
+    private Double rankingFactor;
+    private Integer classification;
+}
