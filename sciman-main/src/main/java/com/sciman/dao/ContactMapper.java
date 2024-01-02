@@ -1,5 +1,6 @@
 package com.sciman.dao;
 
+import com.github.pagehelper.Page;
 import com.sciman.pojo.Contact;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

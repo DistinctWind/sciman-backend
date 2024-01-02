@@ -3,7 +3,6 @@ package com.sciman.dao;
 import com.github.pagehelper.Page;
 import com.sciman.pojo.Contact;
 import com.sciman.pojo.Organization;
-import com.sciman.vo.project.OrganizationView;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,6 +14,8 @@ public interface OrganizationMapper {
     Organization getOrganizationById(Long id);
 
     List<Contact> getSecondaryContactsByOrganizationId(Long organizationId);
+
+    Page<Contact> getSecondaryContactsByOrganizationIdParamed(Long organizationId);
 
     Page<Organization> getOrganizationsFor(
             String nameFilter
