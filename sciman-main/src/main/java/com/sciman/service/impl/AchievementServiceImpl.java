@@ -17,8 +17,12 @@ public class AchievementServiceImpl implements AchievementService {
 
     @Override
     public AchievementQueryResult getAchievementList(AchievementQueryParam queryParam) {
+        queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
-        Page<AchievementView> achievement = achievementMapper.getAchievementList();
+        Page<AchievementView> achievement = achievementMapper.getAchievementList(
+                queryParam.getNameFilter(),
+                queryParam.getProjectId()
+        );
         return new AchievementQueryResult(achievement.getResult(), achievement.getTotal());
     }
 }
