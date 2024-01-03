@@ -24,4 +24,14 @@
             </if>
         </where>
     </select>
+    <select id="getAllAchievement" resultType="com.sciman.vo.achievement.AchievementView">
+        select
+            a.id as id,
+            p.name as project_name,
+            a.name as name,
+            a.achieve_date as achieve_date,
+            a.classification as classification,
+            a.ranking_factor as ranking_factor
+        from achievement a join project p on a.project_id = p.project_id
+    </select>
 </mapper>

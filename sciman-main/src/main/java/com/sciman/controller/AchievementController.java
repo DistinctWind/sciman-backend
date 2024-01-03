@@ -18,4 +18,9 @@ public class AchievementController {
     public Result getAchievementList(@RequestBody AchievementQueryParam queryParam) {
         return Result.success(achievementService.getAchievementList(queryParam));
     }
+
+    @GetMapping("/listAll")
+    public Result getAllAchievement() {
+        return Result.success(achievementService.getAllAchievement());
+    }
 }

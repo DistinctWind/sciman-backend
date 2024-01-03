@@ -10,6 +10,8 @@ import com.sciman.vo.achievement.AchievementView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AchievementServiceImpl implements AchievementService {
@@ -24,5 +26,10 @@ public class AchievementServiceImpl implements AchievementService {
                 queryParam.getProjectId()
         );
         return new AchievementQueryResult(achievement.getResult(), achievement.getTotal());
+    }
+
+    @Override
+    public List<AchievementView> getAllAchievement() {
+        return achievementMapper.getAllAchievement();
     }
 }
