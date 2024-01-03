@@ -17,6 +17,10 @@ public class CountServiceImpl implements CountService {
         countData.setResearcher(countMapper.getResearcherCount());
         countData.setSecretary(countMapper.getSecretaryCount());
         countData.setVenue(countMapper.getVenueCount());
+        countData.setOrganization(countMapper.getOrganizationCount());
+        countData.setProject(countMapper.getProjectCount());
+        countData.setContact(countMapper.getContactCount());
+        countData.setAchievement(countMapper.getAchievementCount());
         return countData;
     }
 }
