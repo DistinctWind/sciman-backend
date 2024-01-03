@@ -13,4 +13,7 @@ public interface OrganizationService {
     List<Contact> getSecondaryContactsByOrganizationId(Long organizationId);
     OrganizationView getOrganizationViewByOrganizationId(Long organizationId);
     OrganizationViewQueryResult getOrganizationViewsOf(OrganizationQueryParam queryParam);
+    boolean updatePrimaryContact(Long id, Contact contact);
+
+    boolean updateOrganization(OrganizationView organization);
 }

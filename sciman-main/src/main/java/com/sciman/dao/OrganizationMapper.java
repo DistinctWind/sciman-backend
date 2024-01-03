@@ -22,5 +22,10 @@ public interface OrganizationMapper {
             String nameFilter
     );
 
+    @Select("select principal_contact_id from organization where id = #{organizationId}")
+    Long getPrincipalContactIdByOrganizationId(Long organizationId);
+
     List<OrganizationView> getBasicOrganizationViews();
+
+    Integer updateOrganization(OrganizationView organization);
 }
