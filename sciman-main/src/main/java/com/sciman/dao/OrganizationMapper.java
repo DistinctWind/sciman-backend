@@ -26,4 +26,6 @@ public interface OrganizationMapper {
     Long getPrincipalContactIdByOrganizationId(Long organizationId);
 
     List<OrganizationView> getBasicOrganizationViews();
+
+    Integer updateOrganization(OrganizationView organization);
 }

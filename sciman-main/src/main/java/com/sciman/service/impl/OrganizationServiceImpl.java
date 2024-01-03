@@ -40,6 +40,12 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
+    public boolean updateOrganization(OrganizationView organization) {
+        log.info("updating organization: {}", organization);
+        return organizationMapper.updateOrganization(organization) == 1;
+    }
+
+    @Override
     public boolean updatePrimaryContact(Long id, Contact contact) {
         log.info("updating primary contact of organization: {}", id);
         Long principalContactId = organizationMapper.getPrincipalContactIdByOrganizationId(id);
