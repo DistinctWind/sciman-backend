@@ -1,6 +1,7 @@
 package com.sciman.controller;
 
 import com.sciman.dto.achievement.AchievementQueryParam;
+import com.sciman.pojo.Achievement;
 import com.sciman.service.AchievementService;
 import com.sciman.utils.result.Result;
 import com.sciman.vo.achievement.AchievementView;
@@ -45,6 +46,15 @@ public class AchievementController {
             return Result.success();
         } else {
             return Result.fail("删除失败");
+        }
+    }
+
+    @PutMapping("/add")
+    public Result addAchievement(@RequestBody Achievement achievementView) {
+        if (achievementService.addAchievement(achievementView)) {
+            return Result.success();
+        } else {
+            return Result.fail("添加失败");
         }
     }
 }
