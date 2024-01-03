@@ -5,4 +5,5 @@ import com.sciman.dto.contribution.ContributionQueryResult;
 
 public interface ContributionService {
     ContributionQueryResult listContribution(ContributionQueryParam queryParam);
+    boolean deleteContribution(Long id);
 }

@@ -19,4 +19,13 @@ public class ContributeController {
     public Result listContribution(@RequestBody ContributionQueryParam queryParam) {
         return Result.success(contributionService.listContribution(queryParam));
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteContribution(@PathVariable Long id) {
+        if (contributionService.deleteContribution(id)) {
+            return Result.success();
+        } else {
+            return Result.fail("删除失败");
+        }
+    }
 }
