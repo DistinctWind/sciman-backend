@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.sciman.dao.AchievementMapper;
 import com.sciman.dto.achievement.AchievementQueryParam;
 import com.sciman.dto.achievement.AchievementQueryResult;
+import com.sciman.pojo.Achievement;
 import com.sciman.service.AchievementService;
 import com.sciman.vo.achievement.AchievementView;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,11 @@ public class AchievementServiceImpl implements AchievementService {
     @Override
     public boolean updateAchievement(AchievementView achievementView) {
         return achievementMapper.updateAchievement(achievementView) > 0;
+    }
+
+    @Override
+    public boolean addAchievement(Achievement achievement) {
+        return achievementMapper.addAchievement(achievement) > 0;
     }
 
     @Override

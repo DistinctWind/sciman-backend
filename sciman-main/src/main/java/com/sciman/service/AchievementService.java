@@ -2,6 +2,7 @@ package com.sciman.service;
 
 import com.sciman.dto.achievement.AchievementQueryParam;
 import com.sciman.dto.achievement.AchievementQueryResult;
+import com.sciman.pojo.Achievement;
 import com.sciman.vo.achievement.AchievementView;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface AchievementService {
     AchievementView getDetailOfAchievement(Long achievementId);
     boolean updateAchievement(AchievementView achievementView);
     boolean deleteAchievement(Long achievementId);
+    boolean addAchievement(Achievement achievementView);
 }
