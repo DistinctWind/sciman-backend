@@ -14,8 +14,12 @@ public interface AchievementMapper {
         Long projectId
     );
 
+    AchievementView getAchievement(Long achievementId);
+
     List<AchievementView> getAllAchievement();
 
     @Select("select project_id from achievement where id = #{achievementId}")
     Long getProjectIdOfAchievementId(Long achievementId);
+
+    Integer updateAchievement(AchievementView achievementView);
 }

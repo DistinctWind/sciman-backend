@@ -18,6 +18,16 @@ public class AchievementServiceImpl implements AchievementService {
     private final AchievementMapper achievementMapper;
 
     @Override
+    public AchievementView getDetailOfAchievement(Long achievementId) {
+        return achievementMapper.getAchievement(achievementId);
+    }
+
+    @Override
+    public boolean updateAchievement(AchievementView achievementView) {
+        return achievementMapper.updateAchievement(achievementView) > 0;
+    }
+
+    @Override
     public AchievementQueryResult getAchievementList(AchievementQueryParam queryParam) {
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
