@@ -3,6 +3,7 @@ package com.sciman.controller;
 import com.sciman.dto.achievement.AchievementQueryParam;
 import com.sciman.service.AchievementService;
 import com.sciman.utils.result.Result;
+import com.sciman.vo.achievement.AchievementView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -22,5 +23,15 @@ public class AchievementController {
     @GetMapping("/listAll")
     public Result getAllAchievement() {
         return Result.success(achievementService.getAllAchievement());
+    }
+
+    @GetMapping("/detail/{achievementId}")
+    public Result getDetailOfAchievement(@PathVariable Long achievementId) {
+        return Result.success(achievementService.getDetailOfAchievement(achievementId));
+    }
+
+    @PostMapping("/update")
+    public Result updateAchievement(@RequestBody AchievementView achievementView) {
+        return Result.success(achievementService.updateAchievement(achievementView));
     }
 }

@@ -4,6 +4,24 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sciman.dao.AchievementMapper">
+    <update id="updateAchievement">
+        update achievement
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="achieveDate != null">
+                achieve_date = #{achieveDate},
+            </if>
+            <if test="classification != null">
+                classification = #{classification},
+            </if>
+            <if test="rankingFactor != null">
+                ranking_factor = #{rankingFactor},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
 
     <select id="getAchievementList" resultType="com.sciman.vo.achievement.AchievementView">
@@ -33,5 +51,16 @@
             a.classification as classification,
             a.ranking_factor as ranking_factor
         from achievement a join project p on a.project_id = p.project_id
+    </select>
+    <select id="getAchievement" resultType="com.sciman.vo.achievement.AchievementView">
+        select
+            a.id as id,
+            p.name as project_name,
+            a.name as name,
+            a.achieve_date as achieve_date,
+            a.classification as classification,
+            a.ranking_factor as ranking_factor
+        from achievement a join project p on a.project_id = p.project_id
+        where a.id = #{achievementId}
     </select>
 </mapper>

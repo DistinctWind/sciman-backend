@@ -9,4 +9,6 @@ import java.util.List;
 public interface AchievementService {
     AchievementQueryResult getAchievementList(AchievementQueryParam queryParam);
     List<AchievementView> getAllAchievement();
+    AchievementView getDetailOfAchievement(Long achievementId);
+    boolean updateAchievement(AchievementView achievementView);
 }
