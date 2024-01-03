@@ -1,5 +1,6 @@
 package com.sciman.service;
 
+import com.sciman.dto.organization.OrganizationAdditionParam;
 import com.sciman.dto.organization.OrganizationQueryParam;
 import com.sciman.dto.organization.OrganizationViewQueryResult;
 import com.sciman.pojo.Contact;
@@ -19,5 +20,5 @@ public interface OrganizationService {
 
     boolean deleteOrganization(Long id);
 
-    boolean addOrganization(OrganizationView organization);
+    boolean addOrganization(OrganizationAdditionParam organization);
 }

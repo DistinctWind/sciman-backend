@@ -1,5 +1,6 @@
 package com.sciman.controller;
 
+import com.sciman.dto.organization.OrganizationAdditionParam;
 import com.sciman.dto.organization.OrganizationQueryParam;
 import com.sciman.pojo.Contact;
 import com.sciman.service.OrganizationService;
@@ -87,7 +88,7 @@ public class OrganizationController {
     }
 
     @PutMapping("/add")
-    public Result addOrganization(@RequestBody OrganizationView organization) {
+    public Result addOrganization(@RequestBody OrganizationAdditionParam organization) {
         try {
             return Result.success(organizationService.addOrganization(organization));
         } catch (RuntimeException e) {
