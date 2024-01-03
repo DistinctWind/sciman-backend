@@ -40,6 +40,16 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
+    public boolean updatePrimaryContact(Long id, Contact contact) {
+        log.info("updating primary contact of organization: {}", id);
+        Long principalContactId = organizationMapper.getPrincipalContactIdByOrganizationId(id);
+        if (principalContactId == null)
+            throw new RuntimeException("Organization not found");
+        contact.setId(principalContactId);
+        return contactMapper.updateContact(contact) == 1;
+    }
+
+    @Override
     public OrganizationViewQueryResult getOrganizationViewsOf(OrganizationQueryParam queryParam) {
         log.info("querying organization view of: {}", queryParam);
         queryParam.normalize();
