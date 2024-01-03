@@ -15,7 +15,7 @@ create table user(
 
 create table laboratory(
     id int unsigned auto_increment primary key comment '研究室id',
-    name varchar(32) not null comment '研究室名称',
+    name varchar(32) not null unique comment '研究室名称',
     orientation varchar(256) comment '研究方向介绍'
 ) comment '研究室信息表';
 
