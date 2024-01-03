@@ -16,4 +16,16 @@ public interface CountMapper {
 
     @Select("select count(*) from venue")
     Integer getVenueCount();
+
+    @Select("select count(*) from organization")
+    Integer getOrganizationCount();
+
+    @Select("select count(*) from project")
+    Integer getProjectCount();
+
+    @Select("select count(*) from contact")
+    Integer getContactCount();
+
+    @Select("select count(*) from achievement")
+    Integer getAchievementCount();
 }

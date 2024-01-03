@@ -12,4 +12,8 @@ public class CountData {
     private Integer researcher;
     private Integer secretary;
     private Integer venue;
+    private Integer organization;
+    private Integer project;
+    private Integer contact;
+    private Integer achievement;
 }
