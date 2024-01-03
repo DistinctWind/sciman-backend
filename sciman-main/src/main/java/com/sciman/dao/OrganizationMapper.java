@@ -34,4 +34,6 @@ public interface OrganizationMapper {
     Integer deleteOrganizationSecondaryContacts(Long id);
 
     Integer deleteOrganizationPrimaryContact(Long id);
+
+    Integer addOrganization(OrganizationView organization, Long principalContactId);
 }

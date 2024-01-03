@@ -4,6 +4,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sciman.dao.OrganizationMapper">
+    <insert id="addOrganization">
+        insert into organization(name, address, principal_contact_id) values
+        (#{organization.organizationName}, #{organization.address}, #{principalContactId})
+    </insert>
     <update id="updateOrganization">
         update organization
         <set>

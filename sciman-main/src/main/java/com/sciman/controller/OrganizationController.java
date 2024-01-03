@@ -85,4 +85,13 @@ public class OrganizationController {
             return Result.fail(e.getMessage());
         }
     }
+
+    @PutMapping("/add")
+    public Result addOrganization(@RequestBody OrganizationView organization) {
+        try {
+            return Result.success(organizationService.addOrganization(organization));
+        } catch (RuntimeException e) {
+            return Result.fail(e.getMessage());
+        }
+    }
 }

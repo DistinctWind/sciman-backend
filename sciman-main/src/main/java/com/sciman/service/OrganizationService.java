@@ -18,4 +18,6 @@ public interface OrganizationService {
     boolean updateOrganization(OrganizationView organization);
 
     boolean deleteOrganization(Long id);
+
+    boolean addOrganization(OrganizationView organization);
 }
