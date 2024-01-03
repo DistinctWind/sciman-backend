@@ -189,7 +189,6 @@ insert into organization_secondary_contact (organization_id, contact_id) values
 (2, 3),
 (3, 1),
 (1, 4),
-(2, 5),
 (3, 6),
 (1, 7),
 (2, 8),
