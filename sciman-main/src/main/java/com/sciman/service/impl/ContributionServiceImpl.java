@@ -16,6 +16,11 @@ public class ContributionServiceImpl implements ContributionService {
     private final ContributionMapper contributionMapper;
 
     @Override
+    public boolean deleteContribution(Long id) {
+        return contributionMapper.deleteContributions(id) > 0;
+    }
+
+    @Override
     public ContributionQueryResult listContribution(ContributionQueryParam queryParam) {
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
