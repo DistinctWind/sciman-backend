@@ -1,6 +1,7 @@
 package com.sciman.dao;
 
 import com.github.pagehelper.Page;
+import com.sciman.dto.organization.OrganizationAdditionParam;
 import com.sciman.pojo.Contact;
 import com.sciman.pojo.Organization;
 import com.sciman.vo.project.OrganizationView;
@@ -34,4 +35,6 @@ public interface OrganizationMapper {
     Integer deleteOrganizationSecondaryContacts(Long id);
 
     Integer deleteOrganizationPrimaryContact(Long id);
+
+    Integer addOrganization(OrganizationAdditionParam organization, Long principalContactId);
 }

@@ -3,8 +3,8 @@ package com.sciman.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sciman.dao.ContactMapper;
-import com.sciman.dao.SecondaryContactMapper;
 import com.sciman.dao.OrganizationMapper;
+import com.sciman.dto.organization.OrganizationAdditionParam;
 import com.sciman.dto.organization.OrganizationQueryParam;
 import com.sciman.dto.organization.OrganizationViewQueryResult;
 import com.sciman.pojo.Contact;
@@ -51,6 +51,14 @@ public class OrganizationServiceImpl implements OrganizationService {
         organizationMapper.deleteOrganizationSecondaryContacts(id);
         organizationMapper.deleteOrganizationPrimaryContact(id);
         return organizationMapper.deleteOrganization(id) == 1;
+    }
+
+    @Override
+    public boolean addOrganization(OrganizationAdditionParam organization) {
+        Contact principalContact = organization.getPrincipalContact();
+        contactMapper.addContact(principalContact);
+        Long principalContactId = principalContact.getId();
+        return organizationMapper.addOrganization(organization, principalContactId) == 1;
     }
 
     @Override

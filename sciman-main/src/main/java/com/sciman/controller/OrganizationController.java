@@ -1,5 +1,6 @@
 package com.sciman.controller;
 
+import com.sciman.dto.organization.OrganizationAdditionParam;
 import com.sciman.dto.organization.OrganizationQueryParam;
 import com.sciman.pojo.Contact;
 import com.sciman.service.OrganizationService;
@@ -81,6 +82,15 @@ public class OrganizationController {
     public Result deleteOrganization(@PathVariable Long id) {
         try {
             return Result.success(organizationService.deleteOrganization(id));
+        } catch (RuntimeException e) {
+            return Result.fail(e.getMessage());
+        }
+    }
+
+    @PutMapping("/add")
+    public Result addOrganization(@RequestBody OrganizationAdditionParam organization) {
+        try {
+            return Result.success(organizationService.addOrganization(organization));
         } catch (RuntimeException e) {
             return Result.fail(e.getMessage());
         }
