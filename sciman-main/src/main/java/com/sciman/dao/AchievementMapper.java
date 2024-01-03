@@ -2,6 +2,7 @@ package com.sciman.dao;
 
 import com.github.pagehelper.Page;
 import com.sciman.vo.achievement.AchievementView;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -22,4 +23,7 @@ public interface AchievementMapper {
     Long getProjectIdOfAchievementId(Long achievementId);
 
     Integer updateAchievement(AchievementView achievementView);
+
+    @Delete("delete from achievement where id = #{achievementId}")
+    Integer deleteAchievement(Long achievementId);
 }
