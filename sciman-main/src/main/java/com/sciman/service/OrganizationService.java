@@ -16,4 +16,6 @@ public interface OrganizationService {
     boolean updatePrimaryContact(Long id, Contact contact);
 
     boolean updateOrganization(OrganizationView organization);
+
+    boolean deleteOrganization(Long id);
 }
