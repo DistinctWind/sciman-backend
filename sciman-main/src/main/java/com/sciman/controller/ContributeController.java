@@ -1,6 +1,7 @@
 package com.sciman.controller;
 
 import com.sciman.dto.contribution.ContributionQueryParam;
+import com.sciman.pojo.Contribution;
 import com.sciman.service.ContributionService;
 import com.sciman.utils.result.Result;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,15 @@ public class ContributeController {
             return Result.success();
         } else {
             return Result.fail("删除失败");
+        }
+    }
+
+    @PutMapping("/add")
+    public Result addContribution(@RequestBody Contribution contribution) {
+        if (contributionService.addContribution(contribution)) {
+            return Result.success();
+        } else {
+            return Result.fail("添加失败：不能向All Achievement添加Contribution");
         }
     }
 }
