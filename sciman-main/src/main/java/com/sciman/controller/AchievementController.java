@@ -32,6 +32,19 @@ public class AchievementController {
 
     @PostMapping("/update")
     public Result updateAchievement(@RequestBody AchievementView achievementView) {
-        return Result.success(achievementService.updateAchievement(achievementView));
+        if (achievementService.updateAchievement(achievementView)) {
+            return Result.success();
+        } else {
+            return Result.fail("更新失败");
+        }
+    }
+
+    @DeleteMapping("/delete/{achievementId}")
+    public Result deleteAchievement(@PathVariable Long achievementId) {
+        if (achievementService.deleteAchievement(achievementId)) {
+            return Result.success();
+        } else {
+            return Result.fail("删除失败");
+        }
     }
 }

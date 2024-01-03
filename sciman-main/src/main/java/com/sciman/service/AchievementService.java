@@ -11,4 +11,5 @@ public interface AchievementService {
     List<AchievementView> getAllAchievement();
     AchievementView getDetailOfAchievement(Long achievementId);
     boolean updateAchievement(AchievementView achievementView);
+    boolean deleteAchievement(Long achievementId);
 }

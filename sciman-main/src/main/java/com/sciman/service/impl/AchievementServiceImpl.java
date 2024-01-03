@@ -28,6 +28,11 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
+    public boolean deleteAchievement(Long achievementId) {
+        return achievementMapper.deleteAchievement(achievementId) > 0;
+    }
+
+    @Override
     public AchievementQueryResult getAchievementList(AchievementQueryParam queryParam) {
         queryParam.normalize();
         PageHelper.startPage(queryParam.getPage(), queryParam.getPageSize());
