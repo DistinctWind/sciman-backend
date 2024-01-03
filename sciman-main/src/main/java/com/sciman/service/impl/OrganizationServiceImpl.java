@@ -46,6 +46,14 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
+    public boolean deleteOrganization(Long id) {
+        log.info("deleting organization: {}", id);
+        organizationMapper.deleteOrganizationSecondaryContacts(id);
+        organizationMapper.deleteOrganizationPrimaryContact(id);
+        return organizationMapper.deleteOrganization(id) == 1;
+    }
+
+    @Override
     public boolean updatePrimaryContact(Long id, Contact contact) {
         log.info("updating primary contact of organization: {}", id);
         Long principalContactId = organizationMapper.getPrincipalContactIdByOrganizationId(id);

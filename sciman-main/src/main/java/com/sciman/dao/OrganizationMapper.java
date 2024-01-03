@@ -28,4 +28,10 @@ public interface OrganizationMapper {
     List<OrganizationView> getBasicOrganizationViews();
 
     Integer updateOrganization(OrganizationView organization);
+
+    Integer deleteOrganization(Long id);
+
+    Integer deleteOrganizationSecondaryContacts(Long id);
+
+    Integer deleteOrganizationPrimaryContact(Long id);
 }

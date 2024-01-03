@@ -16,6 +16,26 @@
         </set>
         where id = #{id}
     </update>
+    <delete id="deleteOrganization">
+        delete from organization
+        where id = #{id}
+    </delete>
+    <delete id="deleteOrganizationSecondaryContacts">
+        delete from contact
+        where id in (
+            select contact_id
+            from organization_secondary_contact
+            where organization_id = #{organizationId}
+        )
+    </delete>
+    <delete id="deleteOrganizationPrimaryContact">
+        delete from contact
+        where id in (
+            select principal_contact_id
+            from organization
+            where id = #{id}
+        )
+    </delete>
 
     <select id="getSecondaryContactsByOrganizationId" resultType="com.sciman.pojo.Contact">
         select c.id            as id,

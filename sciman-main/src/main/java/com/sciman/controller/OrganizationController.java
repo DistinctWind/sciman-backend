@@ -76,4 +76,13 @@ public class OrganizationController {
             return Result.fail(e.getMessage());
         }
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteOrganization(@PathVariable Long id) {
+        try {
+            return Result.success(organizationService.deleteOrganization(id));
+        } catch (RuntimeException e) {
+            return Result.fail(e.getMessage());
+        }
+    }
 }
