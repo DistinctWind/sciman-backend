@@ -1,5 +1,6 @@
 package com.sciman.controller;
 
+import com.sciman.dto.researcher.ResearcherListParam;
 import com.sciman.dto.researcher.ResearcherQueryParam;
 import com.sciman.pojo.Researcher;
 import com.sciman.service.ResearcherService;
@@ -17,9 +18,13 @@ import java.util.List;
 public class ResearcherController {
     private final ResearcherService researcherService;
 
-    @GetMapping("/listAll")
-    public Result listAll(@RequestParam(required = false) Long laboratoryId) {
-        List<ResearcherView> result = researcherService.listAllResearcherView(laboratoryId);
+    @PostMapping("/listAll")
+    public Result listAll(
+            @RequestBody ResearcherListParam param
+    ) {
+        List<ResearcherView> result = researcherService.listAllResearcherView(
+                param
+        );
         if (result != null && !result.isEmpty()) {
             return Result.success(result);
         } else {
